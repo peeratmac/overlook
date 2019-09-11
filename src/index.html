@@ -5,12 +5,50 @@
   </head>
   <body>
     <header>
-      <h1>Overlook Hotel</h1>
-      <h2>Current Customer:</h2>
-      <h3>Today</h3>
+      <h1 class="header__title">Overlook Hotel</h1>
+      <h2 class="header__customer-name">Current Customer:</h2>
+      <h2 class="header__date">Date Here XX/XX/XXXX</h2>
     </header>
     <main>
-      <header></header>
+      <section>
+        <h2 class="main__section__h2">Search for Customer</h2>
+        <input
+          class="main__section__input"
+          type="text"
+          placeholder="Search Customer"
+        />
+        <button
+          class="main__section__button-add-customer"
+          value="Add Customer"
+          disabled="true"
+        >
+          Add Customer
+        </button>
+        <div class="search-result"></div>
+      </section>
+      <div class="tabs">
+        <ul class="tabs-navigation">
+          <li><a href="#main-tab">Main</a></li>
+          <li><a href="#orders-tab">Orders</a></li>
+          <li><a href="#rooms-tab">Rooms</a></li>
+          <li><a href="#customers-tab">Customers</a></li>
+        </ul>
+        <div class="tabs-stage">
+          <div id="main-tab">
+            <p>HELLO MAIN</p>
+            <p class=""></p>
+          </div>
+          <div id="orders-tab">
+            <p>HELLO ORDERS</p>
+          </div>
+          <div id="rooms-tab">
+            <p>HELLO ROOMS</p>
+          </div>
+          <div id="customers-tab">
+            <p>HELLO CUSTOMERS</p>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>
