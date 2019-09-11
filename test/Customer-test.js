@@ -1,11 +1,11 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-import Booking from '../src/Booking';
+import Customer from '../src/Customer';
 
-let booking;
+let customer1, customer2, customer3;
 
-describe('BOOKING', function() {
+describe('CUSTOMER', function() {
   it('should return true', function() {
     expect(true).to.equal(true);
   });
