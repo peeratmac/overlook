@@ -2,6 +2,7 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import RoomService from '../src/RoomService';
+import domUpdates from '../src/domUpdates';
 
 let roomService;
 
