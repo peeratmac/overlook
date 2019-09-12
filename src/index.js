@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import './css/base.scss';
 
+import Hotel from '../src/Hotel';
+
 // Main tab is the default tab
 $('.tabs-stage div').hide();
 $('.tabs-stage div:first').show();
@@ -25,7 +27,7 @@ let users = fetch(
   .then(data => (users = data.users))
   .catch(error => console.log('Unable to fetch data', error));
 
-setTimeout(() => console.log(users), 3000);
+setTimeout(() => console.log(users), 2000);
 
 let rooms = fetch(
   'https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms'
@@ -34,7 +36,7 @@ let rooms = fetch(
   .then(data => (rooms = data.rooms))
   .catch(err => console.log('Unable to fetch data', err));
 
-setTimeout(() => console.log(rooms), 3000);
+setTimeout(() => console.log(rooms), 2000);
 
 let bookings = fetch(
   'https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings'
@@ -43,7 +45,7 @@ let bookings = fetch(
   .then(data => (bookings = data.bookings))
   .catch(err => console.log('Unable to fetch data', err));
 
-setTimeout(() => console.log(bookings), 3000);
+setTimeout(() => console.log(bookings), 2000);
 
 let roomServices = fetch(
   'https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices'
@@ -55,3 +57,11 @@ let roomServices = fetch(
 setTimeout(() => console.log(roomServices), 3000);
 
 // * End of fetch
+
+// Todo: here here //
+
+let hotel;
+setTimeout(() => {
+  hotel = new Hotel(users, rooms, bookings, roomServices);
+  hotel.getTodayDate();
+}, 2000);
