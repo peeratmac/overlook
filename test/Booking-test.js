@@ -14,16 +14,7 @@ import domUpdates from '../src/domUpdates';
 
 describe('BOOKING', () => {
   let hotel, booking;
-  beforeEach(() => {
-    hotel = new Hotel(
-      testData.users,
-      testData.rooms,
-      testData.bookings,
-      testData.roomServices
-    );
-  });
+  beforeEach(() => {});
 
-  it.only('should get number of rooms available', () => {
-    console.log('x');
-  });
+  it('should get number of rooms available', () => {});
 });
