@@ -20,26 +20,63 @@
         </ul>
         <div class="tabs-stage">
           <div id="main-tab">
-            <p>HELLO MAIN</p>
             <p class="today-date">XX/XX/XXXX</p>
-            <p class="total-rooms-available">XX rooms</p>
-            <p class="occupancy-percentage">XX%</p>
-            <p class="total-revenue">$XX.XX</p>
+            <p class="total-rooms-available">XX rooms available</p>
+            <p class="occupancy-percentage">XX% occupancy right now</p>
+            <p class="total-revenue">$XX.XX revenue today</p>
           </div>
           <div id="orders-tab">
-            <p>HELLO ORDERS</p>
-            <p class="all-orders">All Orders Today:</p>
+            <p class="all-orders-today">All Orders Today:</p>
+            <p class="all-orders-today-list">SAMMICH</p>
+            <p class="order-spending">Order Spending Today: $XXX</p>
+            <section class="all-orders-list">List Here</section>
             <input
-            class="orders-date-input"
-            type="text"
-            placeholder="Date to Search"
-          />
-          <button class="orders-date-search-button" value="Search Orders" disabled="true">Search Orders</button>
+              class="orders-date-input"
+              type="text"
+              placeholder="Date to Search"
+            />
+            <button
+              class="orders-date-search-button"
+              value="Search Orders"
+              disabled="true"
+            >
+              Search Orders
+            </button>
+            <p class="order-history">Order History:</p>
+            <section class="order-history-list">
+              List Sandwiches and Rice and Beans Here
+            </section>
+            <p class="lifetime-order-spending">Lifetime Spending: $XXX</p>
+          </div>
           <div id="rooms-tab">
-            <p>HELLO ROOMS</p>
+            <p class="most-popular-date">
+              Most Popular Booking Date: XX/XX/XXXX
+            </p>
+            <p class="date-with-most-rooms">Date with Most Rooms: XX/XX/XXXX</p>
+            <input
+              class="rooms-date-input"
+              type="text"
+              placeholder="Date to Search"
+            />
+            <select
+              ><option value="All">All Types</option>
+              <option value="single room">Single Room</option>
+              <option value="junior suite">Junior Suite</option>
+              <option value="residential suite">Residential Suite</option>
+              <option value="suite">Suite</option>
+            </select>
+            <p class="available-rooms-list">
+              <container class="room-list-booking">
+                Rooms Available Here: Room X Y Z Bed Quanity Bidet etc.
+                <button class="booking-button">Book</button>
+              </container>
+            </p>
+            <p class="customer-rooms-history">
+              Current Customer Room Booking History
+            </p>
+            <p class="customer-rooms-history-list">List Rooms and Dates Here</p>
           </div>
           <div id="customer-tab">
-            <p>HELLO CUSTOMERS</p>
             <h2 class="main__section__h2">Search for Customer</h2>
             <input
               class="main__section__input"
@@ -53,7 +90,7 @@
             >
               Add Customer
             </button>
-            <div class="search-result"></div>
+            <div class="search-result">Search Result List Here</div>
           </div>
         </div>
       </div>
