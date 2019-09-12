@@ -10,42 +10,50 @@
       <h2 class="header__date">Date Here XX/XX/XXXX</h2>
     </header>
     <main>
-      <section>
-        <h2 class="main__section__h2">Search for Customer</h2>
-        <input
-          class="main__section__input"
-          type="text"
-          placeholder="Search Customer"
-        />
-        <button
-          class="main__section__button-add-customer"
-          value="Add Customer"
-          disabled="true"
-        >
-          Add Customer
-        </button>
-        <div class="search-result"></div>
-      </section>
+      <section></section>
       <div class="tabs">
         <ul class="tabs-navigation">
           <li><a href="#main-tab">Main</a></li>
           <li><a href="#orders-tab">Orders</a></li>
           <li><a href="#rooms-tab">Rooms</a></li>
-          <li><a href="#customers-tab">Customers</a></li>
+          <li><a href="#customer-tab">Customer</a></li>
         </ul>
         <div class="tabs-stage">
           <div id="main-tab">
             <p>HELLO MAIN</p>
-            <p class=""></p>
+            <p class="today-date">XX/XX/XXXX</p>
+            <p class="total-rooms-available">XX rooms</p>
+            <p class="occupancy-percentage">XX%</p>
+            <p class="total-revenue">$XX.XX</p>
           </div>
           <div id="orders-tab">
             <p>HELLO ORDERS</p>
-          </div>
+            <p class="all-orders">All Orders Today:</p>
+            <input
+            class="orders-date-input"
+            type="text"
+            placeholder="Date to Search"
+          />
+          <button class="orders-date-search-button" value="Search Orders" disabled="true">Search Orders</button>
           <div id="rooms-tab">
             <p>HELLO ROOMS</p>
           </div>
-          <div id="customers-tab">
+          <div id="customer-tab">
             <p>HELLO CUSTOMERS</p>
+            <h2 class="main__section__h2">Search for Customer</h2>
+            <input
+              class="main__section__input"
+              type="text"
+              placeholder="Search Customer"
+            />
+            <button
+              class="main__section__button-add-customer"
+              value="Add Customer"
+              disabled="true"
+            >
+              Add Customer
+            </button>
+            <div class="search-result"></div>
           </div>
         </div>
       </div>
