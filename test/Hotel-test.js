@@ -4,6 +4,7 @@ const expect = chai.expect;
 import spies from 'chai-spies';
 
 import Hotel from '../src/Hotel';
+import domUpdates from '../src/domUpdates';
 
 let hotel;
 
