@@ -1,12 +1,13 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-import Booking from '../src/Booking';
+import spies from 'chai-spies';
+chai.use(spies);
 
-let booking;
+import domUpdates from '../src/domUpdates';
 
-describe('BOOKING', function() {
-  it('should return true', function() {
+describe('BOOKING', () => {
+  it('should return true', () => {
     expect(true).to.equal(true);
   });
 });
