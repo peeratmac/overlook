@@ -12,6 +12,8 @@ class Hotel {
     // Todo: today's date, search date, search room type, search specific customer/user, what is the current customer
   }
 
+  mainHotelHandler() {}
+
   getTodayDate() {
     let date = `${new Date().getFullYear()}/${String(
       new Date().getMonth() + 1
@@ -19,9 +21,15 @@ class Hotel {
     return date;
   }
 
-  getCustomerName(X) {
+  getCustomerName(nameInput) {
     let customer;
-    customer = this.users.find(user => user.name === X);
+    customer = this.userData.find(user => user.name === nameInput).name;
+    return customer;
+  }
+
+  getCustomerID(idInput) {
+    let customer;
+    customer = this.userData.find(user => user.id === idInput).id;
     return customer;
   }
 }

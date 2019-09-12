@@ -18,10 +18,20 @@ describe('HOTEL', () => {
     hotel = new Hotel(data.users, data.rooms, data.bookings, data.roomServices);
   });
 
-  it.only('should be able to get today date', () => {
+  it('should be able to get today date', () => {
     let currentDay = `${new Date().getFullYear()}/${String(
       new Date().getMonth() + 1
     ).padStart(2, '0')}/${String(new Date().getDate()).padStart(2, '0')}`;
     expect(hotel.getTodayDate()).to.equal(currentDay);
+  });
+
+  it('should be able to get a customer name', () => {
+    expect(hotel.getCustomerName('Matilde Larson')).to.equal(
+      data.users[0].name
+    );
+  });
+
+  it('should be able to get a customer name', () => {
+    expect(hotel.getCustomerID(6)).to.equal(data.users[5].id);
   });
 });
