@@ -1,5 +1,42 @@
-$primary-background: pink;
+* {
+  box-sizing: border-box;
+}
 
-body {
-  background-color: $primary-background;
+.tabs {
+  padding-right: 40px;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tabs-navigation li {
+  list-style-type: none;
+  width: 50%;
+}
+
+a {
+  border: 1px solid black;
+  display: block;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+}
+
+.tab-active a {
+  background: yellowgreen;
+  color: red;
+  cursor: default;
+}
+
+.tabs-stage {
+  padding: 25px;
+  position: relative;
+  top: -1px;
 }
