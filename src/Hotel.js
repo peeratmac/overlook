@@ -4,20 +4,26 @@ import RoomService from './RoomService';
 import domUpdates from './domUpdates';
 class Hotel {
   constructor(users, rooms, bookings, roomServices) {
-    this.allUsersData = users;
-    this.allRoomsData = rooms;
-    this.allBookingsData = bookings;
-    this.allRoomServicesData = roomServices;
+    this.userData = users;
+    this.roomData = rooms;
+    this.bookingData = bookings;
+    this.roomServiceData = roomServices;
+
+    // Todo: today's date, search date, search room type, search specific customer/user, what is the current customer
   }
 
   getTodayDate() {
     let date = `${new Date().getFullYear()}/${String(
       new Date().getMonth() + 1
     ).padStart(2, '0')}/${String(new Date().getDate()).padStart(2, '0')}`;
-    domUpdates.showDate(date);
+    return date;
   }
 
-  instantiateBookings() {}
+  getCustomerName(X) {
+    let customer;
+    customer = this.users.find(user => user.name === X);
+    return customer;
+  }
 }
 
 export default Hotel;

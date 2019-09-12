@@ -1,12 +1,12 @@
 import domUpdates from './domUpdates';
 
 class Customer {
-  constructor(id, name, allRooms, allBookings, allRoomServices) {
+  constructor(id, name, roomsData, bookingsData, roomServicesData) {
     this.id = id;
     this.name = name;
-    this.rooms = allRooms || [];
-    this.bookings = allBookings || [];
-    this.roomServices = allRoomServices || [];
+    this.rooms = roomsData || [];
+    this.bookings = bookingsData || [];
+    this.roomServices = roomServicesData || [];
   }
 }
 

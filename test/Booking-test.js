@@ -4,7 +4,7 @@ const expect = chai.expect;
 import spies from 'chai-spies';
 chai.use(spies);
 
-import testData from './testData';
+import data from './data';
 
 import Booking from '../src/Booking';
 import Customer from '../src/Customer';

@@ -2,6 +2,7 @@ import $ from 'jquery';
 import './css/base.scss';
 
 import Hotel from '../src/Hotel';
+import domUpdates from './domUpdates';
 
 // Main tab is the default tab
 $('.tabs-stage div').hide();
@@ -63,5 +64,9 @@ setTimeout(() => console.log(roomServices), 3000);
 let hotel;
 setTimeout(() => {
   hotel = new Hotel(users, rooms, bookings, roomServices);
-  hotel.getTodayDate();
+  let x = hotel.getTodayDate();
+  domUpdates.showDate(x);
+
+  // Todo:
+  domUpdates.showCurrentUser(users[0].name);
 }, 2000);
