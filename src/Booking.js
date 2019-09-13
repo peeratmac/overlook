@@ -50,6 +50,13 @@ class Booking {
       this.calculateNightlyRoomServiceRevenue(date)
     );
   }
+
+  // * Room Services
+
+  findRoomServicesOrder(date) {
+    let ordersPlaced = this.roomServices.filter(order => order.date === date);
+    return ordersPlaced;
+  }
 }
 
 export default Booking;

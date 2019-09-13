@@ -12,12 +12,16 @@ import Hotel from '../src/Hotel';
 import RoomService from '../src/RoomService';
 import domUpdates from '../src/domUpdates';
 
+// NEED SPY
+
+chai.spy.on(domUpdates, [], () => {});
+
 describe('BOOKING', () => {
   let hotel, booking;
   beforeEach(() => {
     hotel = new Hotel(data.users, data.rooms, data.bookings, data.roomServices);
     hotel.mainHotelHandler();
-    hotel.domDisplayMainPage();
+    // hotel.domDisplayMainPage();
   });
 
   it('should expect main hotel handler to be able to find the rooms booked on the date', () => {
@@ -69,9 +73,14 @@ describe('BOOKING', () => {
     ).to.equal(30.07);
   });
 
-  it.only('should be able to calculate total nightly revenue', () => {
+  it('should be able to calculate total nightly revenue', () => {
     expect(
       hotel.bookingMagic.calculateNightlyCombinedRevenue('2019/09/12')
     ).to.equal(6223.190000000001);
+  });
+
+  // * Room Services
+  it('should be able to find all room services order for the day', () => {
+    console.log(hotel.bookingMagic.findRoomServicesOrder('2019/07/28'));
   });
 });
