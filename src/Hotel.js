@@ -24,6 +24,7 @@ class Hotel {
       this.roomData,
       this.getTodayDate()
     );
+
     let roomsBookedOnGivenDate = this.bookingMagic.findRoomsBookedOnGivenDate(
       this.getTodayDate()
     );
