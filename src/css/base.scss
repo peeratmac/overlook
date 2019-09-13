@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
 }
 
 .tabs {
@@ -17,8 +18,10 @@ ul {
   width: 50%;
 }
 
-a {
+a,
+a:visited {
   border: 1px solid black;
+  color: inherit;
   display: block;
   padding: 10px 0;
   text-align: center;
@@ -26,7 +29,7 @@ a {
 }
 
 a:hover {
-  color: blue;
+  color: pink;
 }
 
 .tab-active a {

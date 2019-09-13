@@ -1,4 +1,4 @@
-let testData = {
+let data = {
   users: [
     {
       id: 1,
@@ -1319,4 +1319,8 @@ let testData = {
   ]
 };
 
-export default testData;
+export default data;
+
+// if (typeof module !== 'undefined') {
+//   module.exports = testData;
+// }

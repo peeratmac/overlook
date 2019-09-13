@@ -1,16 +1,13 @@
 class Booking {
-  constructor(users, rooms, bookings, roomServices) {
+  constructor(users, bookings, roomServices, rooms, dayInQuestion) {
     this.users = users;
-    this.rooms = rooms;
     this.bookings = bookings;
     this.roomServices = roomServices;
-    // this.userID = userID;
-    // this.date = date;
-    // this.roomNumber = roomNumber;
+    this.rooms = rooms;
+    this.dayInQuestion = dayInQuestion;
   }
 
-  getNumberOfAvailableRooms(date) {
-    console.log('here');
+  findRoomsBookedOnGivenDate(date) {
     return this.bookings.filter(booking => booking.date === date);
   }
 }
