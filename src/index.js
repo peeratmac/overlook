@@ -37,7 +37,7 @@ let rooms = fetch(
   .then(data => (rooms = data.rooms))
   .catch(err => console.log('Unable to fetch data', err));
 
-setTimeout(() => console.log(rooms), 2000);
+setTimeout(() => console.log(rooms), 3000);
 
 let bookings = fetch(
   'https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings'
@@ -46,7 +46,7 @@ let bookings = fetch(
   .then(data => (bookings = data.bookings))
   .catch(err => console.log('Unable to fetch data', err));
 
-setTimeout(() => console.log(bookings), 2000);
+setTimeout(() => console.log(bookings), 3000);
 
 let roomServices = fetch(
   'https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices'
@@ -64,9 +64,9 @@ setTimeout(() => console.log(roomServices), 3000);
 let hotel;
 setTimeout(() => {
   hotel = new Hotel(users, rooms, bookings, roomServices);
-  let x = hotel.getTodayDate();
-  domUpdates.showDate(x);
-
+  let todayDate = hotel.getTodayDate();
+  domUpdates.showDate(todayDate);
+  hotel.mainHotelHandler();
   // Todo:
   domUpdates.showCurrentUser(users[0].name);
-}, 2000);
+}, 3000);
