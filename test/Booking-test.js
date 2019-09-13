@@ -49,4 +49,28 @@ describe('BOOKING', () => {
       hotel.bookingMagic.calculateOccupancyOnGivenDate('2019/09/12')
     ).to.equal(40);
   });
+
+  it('should be able to give number of rooms available on a given date', () => {
+    expect(
+      hotel.bookingMagic.calculateNumberOfRoomsAvailable('2019/09/13')
+    ).to.equal(33);
+  });
+
+  it('should be able to calculate nightly revenue from room cost alone', () => {
+    expect(
+      hotel.bookingMagic.calculateNightlyRoomRevenue('2019/09/13')
+    ).to.equal(5054.88);
+  });
+
+  it('should be able to calculate nightly revenue from room services alone', () => {
+    expect(
+      hotel.bookingMagic.calculateNightlyRoomServiceRevenue('2019/09/14')
+    ).to.equal(30.07);
+  });
+
+  it.only('should be able to calculate total nightly revenue', () => {
+    expect(
+      hotel.bookingMagic.calculateNightlyCombinedRevenue('2019/09/12')
+    ).to.equal(6223.190000000001);
+  });
 });

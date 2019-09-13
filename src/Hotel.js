@@ -14,6 +14,8 @@ class Hotel {
     // Todo: today's date, search date, search room type, search specific customer/user, what is the current customer
   }
 
+  // ! commenting out domUpdates due to jQuery requires a window with a document
+
   mainHotelHandler() {
     this.bookingMagic = new Booking(
       this.userData,
@@ -28,7 +30,11 @@ class Hotel {
     let todayOccupancy = this.bookingMagic.calculateOccupancyOnGivenDate(
       this.getTodayDate()
     );
-    domUpdates.showOccupancyPercentage(todayOccupancy);
+    // ! domUpdates.showOccupancyPercentage(todayOccupancy);
+    let roomsAvailable = this.bookingMagic.calculateNumberOfRoomsAvailable(
+      this.getTodayDate()
+    );
+    // ! domUpdates.showRoomsAvailable(roomsAvailable);
     return roomsBookedOnGivenDate;
   }
 

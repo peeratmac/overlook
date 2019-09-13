@@ -14,6 +14,10 @@ const domUpdates = {
 
   showOccupancyPercentage(percent) {
     $('.occupancy-percentage').text(`${percent}% occupancy right now`);
+  },
+
+  showRoomsAvailable(rooms) {
+    $('.total-rooms-available').text(`${rooms} avaialble`);
   }
 };
 
