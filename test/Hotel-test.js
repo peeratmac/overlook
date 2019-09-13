@@ -34,4 +34,11 @@ describe('HOTEL', () => {
   it('should be able to get a customer name', () => {
     expect(hotel.getCustomerID(6)).to.equal(data.users[5].id);
   });
+
+  it('should be able to add a customer name (id generated - name provided by input) and return that new customer', () => {
+    expect(hotel.addCustomerName('Lana Del Rey')).to.equal(
+      data.users[data.users.length - 1]
+    );
+    console.log(data.users[data.users.length - 1]);
+  });
 });

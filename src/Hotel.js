@@ -8,6 +8,7 @@ class Hotel {
     this.roomData = rooms;
     this.bookingData = bookings;
     this.roomServiceData = roomServices;
+    this.users = [];
 
     // Todo: today's date, search date, search room type, search specific customer/user, what is the current customer
   }
@@ -31,6 +32,14 @@ class Hotel {
     let customer;
     customer = this.userData.find(user => user.id === idInput).id;
     return customer;
+  }
+
+  addCustomerName(name) {
+    let currentLength = this.userData.length;
+    let id = currentLength + 1;
+    let newUser = new Customer(id, name, [], [], []);
+    this.userData.push(newUser);
+    return this.userData[id - 1];
   }
 }
 
