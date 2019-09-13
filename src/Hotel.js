@@ -27,14 +27,32 @@ class Hotel {
     let roomsBookedOnGivenDate = this.bookingMagic.findRoomsBookedOnGivenDate(
       this.getTodayDate()
     );
-    let todayOccupancy = this.bookingMagic.calculateOccupancyOnGivenDate(
-      this.getTodayDate()
-    );
-    // ! domUpdates.showOccupancyPercentage(todayOccupancy);
+
     let roomsAvailable = this.bookingMagic.calculateNumberOfRoomsAvailable(
       this.getTodayDate()
     );
-    // ! domUpdates.showRoomsAvailable(roomsAvailable);
+    domUpdates.showRoomsAvailable(roomsAvailable);
+
+    let todayOccupancy = this.bookingMagic.calculateOccupancyOnGivenDate(
+      this.getTodayDate()
+    );
+    domUpdates.showOccupancyPercentage(todayOccupancy);
+
+    let todayRoomsRevenue = this.bookingMagic.calculateNightlyRoomRevenue(
+      this.getTodayDate()
+    );
+    domUpdates.showRoomsRevenue(todayRoomsRevenue);
+
+    let todayRoomServicesRevenue = this.bookingMagic.calculateNightlyRoomServiceRevenue(
+      this.getTodayDate()
+    );
+    domUpdates.showRoomServicesRevenue(todayRoomServicesRevenue);
+
+    let totalRevenue = this.bookingMagic.calculateNightlyCombinedRevenue(
+      this.getTodayDate()
+    );
+    domUpdates.showTotalRevenue(totalRevenue);
+
     return roomsBookedOnGivenDate;
   }
 

@@ -17,6 +17,7 @@ describe('BOOKING', () => {
   beforeEach(() => {
     hotel = new Hotel(data.users, data.rooms, data.bookings, data.roomServices);
     hotel.mainHotelHandler();
+    hotel.domDisplayMainPage();
   });
 
   it('should expect main hotel handler to be able to find the rooms booked on the date', () => {

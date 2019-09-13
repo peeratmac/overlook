@@ -18,6 +18,18 @@ const domUpdates = {
 
   showRoomsAvailable(rooms) {
     $('.total-rooms-available').text(`${rooms} avaialble`);
+  },
+
+  showRoomsRevenue(revenue) {
+    $('.room-revenue').text(`$${revenue} rooms revenue today`);
+  },
+
+  showRoomServicesRevenue(revenue) {
+    $('.room-service-revenue').text(`$${revenue} room services revenue today`);
+  },
+
+  showTotalRevenue(revenue) {
+    $('.total-revenue').text(`$${revenue} total revenue today`);
   }
 };
 
