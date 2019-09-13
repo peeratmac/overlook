@@ -16,6 +16,7 @@ describe('HOTEL', () => {
   let hotel;
   beforeEach(() => {
     hotel = new Hotel(data.users, data.rooms, data.bookings, data.roomServices);
+    hotel.mainHotelHandler();
   });
 
   it('should be able to get today date', () => {

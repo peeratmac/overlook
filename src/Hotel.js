@@ -9,11 +9,24 @@ class Hotel {
     this.bookingData = bookings;
     this.roomServiceData = roomServices;
     this.users = [];
+    this.bookingMagic;
 
     // Todo: today's date, search date, search room type, search specific customer/user, what is the current customer
   }
 
-  mainHotelHandler() {}
+  mainHotelHandler() {
+    this.bookingMagic = new Booking(
+      this.userData,
+      this.bookingData,
+      this.roomServiceData,
+      this.roomData,
+      this.getTodayDate()
+    );
+    let roomsBookedOnGivenDate = this.bookingMagic.findRoomsBookedOnGivenDate(
+      this.getTodayDate()
+    );
+    return roomsBookedOnGivenDate;
+  }
 
   getTodayDate() {
     let date = `${new Date().getFullYear()}/${String(
