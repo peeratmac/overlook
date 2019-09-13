@@ -19,13 +19,34 @@ describe('BOOKING', () => {
     hotel.mainHotelHandler();
   });
 
-  it('should expect main hotel handler to be able to find number of rooms booked on the date', () => {
+  it('should expect main hotel handler to be able to find the rooms booked on the date', () => {
     let bookingOnSep13 = [
       { userID: 40, date: '2019/09/13', roomNumber: 40 },
-      { userID: 51, date: '2019/09/13', roomNumber: 35 }
+      { userID: 51, date: '2019/09/13', roomNumber: 35 },
+      { userID: 58, date: '2019/09/13', roomNumber: 42 },
+      { userID: 17, date: '2019/09/13', roomNumber: 2 },
+      { userID: 37, date: '2019/09/13', roomNumber: 16 },
+      { userID: 8, date: '2019/09/13', roomNumber: 3 },
+      { userID: 64, date: '2019/09/13', roomNumber: 4 },
+      { userID: 14, date: '2019/09/13', roomNumber: 32 },
+      { userID: 73, date: '2019/09/13', roomNumber: 8 },
+      { userID: 52, date: '2019/09/13', roomNumber: 30 },
+      { userID: 55, date: '2019/09/13', roomNumber: 26 },
+      { userID: 51, date: '2019/09/13', roomNumber: 11 },
+      { userID: 25, date: '2019/09/13', roomNumber: 49 },
+      { userID: 20, date: '2019/09/13', roomNumber: 37 },
+      { userID: 58, date: '2019/09/13', roomNumber: 17 },
+      { userID: 36, date: '2019/09/13', roomNumber: 22 },
+      { userID: 50, date: '2019/09/13', roomNumber: 13 }
     ];
     expect(hotel.bookingMagic.findRoomsBookedOnGivenDate('2019/09/13')).to.eql(
       bookingOnSep13
     );
+  });
+
+  it('should be able calculate hotel occupancy percentage on a given date', () => {
+    expect(
+      hotel.bookingMagic.calculateOccupancyOnGivenDate('2019/09/12')
+    ).to.equal(40);
   });
 });

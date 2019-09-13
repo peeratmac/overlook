@@ -25,6 +25,10 @@ class Hotel {
     let roomsBookedOnGivenDate = this.bookingMagic.findRoomsBookedOnGivenDate(
       this.getTodayDate()
     );
+    let todayOccupancy = this.bookingMagic.calculateOccupancyOnGivenDate(
+      this.getTodayDate()
+    );
+    domUpdates.showOccupancyPercentage(todayOccupancy);
     return roomsBookedOnGivenDate;
   }
 

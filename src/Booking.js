@@ -10,6 +10,12 @@ class Booking {
   findRoomsBookedOnGivenDate(date) {
     return this.bookings.filter(booking => booking.date === date);
   }
+
+  calculateOccupancyOnGivenDate(date) {
+    return (
+      (this.findRoomsBookedOnGivenDate(date).length / this.rooms.length) * 100
+    );
+  }
 }
 
 export default Booking;
