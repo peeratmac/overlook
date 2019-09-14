@@ -2,6 +2,7 @@ import $ from 'jquery';
 import './css/base.scss';
 
 import Hotel from '../src/Hotel';
+import Booking from '../src/Booking'
 import domUpdates from './domUpdates';
 
 // Main tab is the default tab
@@ -57,16 +58,25 @@ let roomServices = fetch(
 
 setTimeout(() => console.log(roomServices), 3000);
 
+let dataFromFetch = { users: {}, rooms: {}, bookings: {}, roomServices: {} };
+
+Promise.all([users, rooms, bookings, roomServices]).then(function(data) {
+  dataFromFetch['users'] = data[0];
+  dataFromFetch['rooms'] = data[1];
+  dataFromFetch['bookings'] = data[2];
+  dataFromFetch['roomServices'] = data[3];
+  return dataFromFetch;
+}).catch(err => consolelog(`Error: ${err}`))
+
 // * End of fetch
 
 // Todo: here here //
 
-let hotel;
 setTimeout(() => {
-  hotel = new Hotel(users, rooms, bookings, roomServices);
+  let hotel;
+  hotel = new Hotel(dataFromFetch.users, dataFromFetch.rooms, dataFromFetch.bookings, dataFromFetch.roomServices);
   let todayDate = hotel.getTodayDate();
   domUpdates.showDate(todayDate);
   hotel.mainHotelHandler();
-  // Todo:
-  domUpdates.showCurrentUser(users[0].name);
+  domUpdates.showCurrentUser(dataFromFetch.users[3].name);
 }, 3000);

@@ -14,7 +14,7 @@ class Hotel {
     // Todo: today's date, search date, search room type, search specific customer/user, what is the current customer
   }
 
-  // ! commenting out domUpdates due to jQuery requires a window with a document
+  // ! commenting out domUpdates due to jQuery requires a window with a document - need chai spy
 
   mainHotelHandler() {
     this.bookingMagic = new Booking(

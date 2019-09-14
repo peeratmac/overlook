@@ -12,8 +12,6 @@ import Hotel from '../src/Hotel';
 import RoomService from '../src/RoomService';
 import domUpdates from '../src/domUpdates';
 
-// NEED SPY
-
 chai.spy.on(domUpdates, [], () => {});
 
 describe('BOOKING', () => {
