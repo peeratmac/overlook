@@ -42,4 +42,27 @@ describe('HOTEL', () => {
     );
     console.log(data.users[data.users.length - 1]);
   });
+
+  it('should be able to get user room services data given userID', () => {
+    let result = [
+      {
+        userID: 14,
+        date: '2019/07/29',
+        food: 'Rustic Concrete Sandwich',
+        totalCost: 14.9
+      },
+      {
+        userID: 14,
+        date: '2019/09/01',
+        food: 'Awesome Granite Sandwich',
+        totalCost: 18.34
+      }
+    ];
+    let mapResult = [
+      ' Menu: Rustic Concrete Sandwich, Bill: 14.9',
+      ' Menu: Awesome Granite Sandwich, Bill: 18.34'
+    ];
+    expect(hotel.getUserRoomServices(14)).to.eql(result);
+    expect(hotel.getUserRoomServicesMap(14)).to.eql(mapResult);
+  });
 });

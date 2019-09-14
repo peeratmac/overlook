@@ -100,6 +100,16 @@ class Hotel {
     this.userData.push(newUser);
     return this.userData[id - 1];
   }
+
+  getUserRoomServices(userID) {
+    return this.roomServiceData.filter(order => order.userID === userID);
+  }
+
+  getUserRoomServicesMap(userID) {
+    return this.getUserRoomServices(userID).map(order => {
+      return ` Menu: ${order.food}, Bill: ${order.totalCost}`;
+    });
+  }
 }
 
 export default Hotel;
