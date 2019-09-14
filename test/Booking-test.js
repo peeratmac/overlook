@@ -21,7 +21,8 @@ chai.spy.on(
     'showRoomServicesRevenue',
     'showTotalRevenue',
     'showAllOrdersList',
-    'showRoomServicesRevenueOnOrdersPage'
+    'showRoomServicesRevenueOnOrdersPage',
+    'updateSelectedDateText'
   ],
   () => {}
 );

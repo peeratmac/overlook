@@ -43,6 +43,14 @@ const domUpdates = {
 
   updateSelectedDateText(date) {
     $('.selected-date-orders').text(date);
+  },
+
+  showAllOrdersListForDate(listOfOrders) {
+    $('.all-orders-selected-date-list').text(`${listOfOrders}`);
+  },
+
+  showRoomServicesRevenueOnOrdersPageForDate(revenue) {
+    $('.order-spending-selected-date').text(`Total Orders: $${revenue}`);
   }
 };
 

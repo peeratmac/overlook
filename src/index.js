@@ -60,33 +60,40 @@ setTimeout(() => console.log(roomServices), 3000);
 
 let dataFromFetch = { users: {}, rooms: {}, bookings: {}, roomServices: {} };
 
-Promise.all([users, rooms, bookings, roomServices])
-  .then(function(data) {
-    dataFromFetch['users'] = data[0];
-    dataFromFetch['rooms'] = data[1];
-    dataFromFetch['bookings'] = data[2];
-    dataFromFetch['roomServices'] = data[3];
-    return dataFromFetch;
-  })
-  .catch(err => consolelog(`Error: ${err}`));
+Promise.all([users, rooms, bookings, roomServices]).then(function(data) {
+  dataFromFetch['users'] = data[0];
+  dataFromFetch['rooms'] = data[1];
+  dataFromFetch['bookings'] = data[2];
+  dataFromFetch['roomServices'] = data[3];
+  return dataFromFetch;
+});
 
 // * End of fetch
 
 // Todo: here here //
 
+let hotel;
 setTimeout(() => {
-  let hotel;
   hotel = new Hotel(
     dataFromFetch.users,
     dataFromFetch.rooms,
     dataFromFetch.bookings,
     dataFromFetch.roomServices
   );
+
   let todayDate = hotel.getTodayDate();
   domUpdates.showDate(todayDate);
   hotel.mainHotelHandler();
   hotel.mainPageDomUpdates();
   hotel.ordersPageDomUpdates();
   domUpdates.showCurrentUser(dataFromFetch.users[5].name);
-  console.log(hotel.bookingMagic);
 }, 3000);
+
+$('.orders-date-search-button').on('click', () => {
+  let searchedDate = $('.orders-date-input').val();
+  domUpdates.updateSelectedDateText(searchedDate);
+  let result = hotel.bookingMagic.findRoomServicesOrderMap(searchedDate);
+  domUpdates.showAllOrdersListForDate(result);
+  let revenueResult = hotel.bookingMagic.calculateNightlyRoomServiceRevenue(searchedDate);
+  domUpdates.showRoomServicesRevenueOnOrdersPageForDate(revenueResult);
+});
