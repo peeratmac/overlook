@@ -27,7 +27,9 @@ chai.spy.on(
     'showRoomServicesRevenueOnOrdersPageForDate',
     'displayCustomerName',
     'showOrderHistoryList',
-    'showOrderHistoryTotal'
+    'showOrderHistoryTotal',
+    'showMostPopularDate',
+    'showLeastPopularDate'
   ],
   () => {}
 );

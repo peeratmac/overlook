@@ -86,6 +86,7 @@ setTimeout(() => {
   hotel.mainHotelHandler();
   hotel.mainPageDomUpdates();
   hotel.ordersPageDomUpdates();
+  hotel.roomsPageDomUpdates();
   domUpdates.showCurrentUser(dataFromFetch.users[0].name);
 }, 3000);
 

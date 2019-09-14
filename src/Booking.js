@@ -86,6 +86,12 @@ class Booking {
     return { maxRoomDates: maxRoomDates, maxRoomCount: maxRoomCount };
   }
 
+  mostRoomsBookedMap() {
+    return `Most Popular Booking Date(s): ${
+      this.findDateWithMostRoomsBooked().maxRoomDates
+    } with ${this.findDateWithMostRoomsBooked().maxRoomCount}  night(s).`;
+  }
+
   findDateWithLeastRoomsBooked() {
     let bookingDataWithDateAndRoomsCount = this.bookings.reduce(
       (acc, booking) => {
@@ -106,6 +112,12 @@ class Booking {
     );
 
     return { minRoomDates: minRoomDates, minRoomCount: minRoomCount };
+  }
+
+  leastRoomsBookedMap() {
+    return `Least Popular Booking Date(s): ${
+      this.findDateWithLeastRoomsBooked().minRoomDates
+    } with ${this.findDateWithLeastRoomsBooked().minRoomCount}  night(s).`;
   }
 }
 

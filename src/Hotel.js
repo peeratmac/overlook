@@ -61,15 +61,26 @@ class Hotel {
   ordersPageDomUpdates() {
     // ! Hardcoded in the date with data for right now to display
     // ! Don't forget to change this and remove the comment^^
+    // ! use '2019/07/28' to check for data or styling
     let allOrdersToday = this.bookingMagic.findRoomServicesOrderMap(
-      '2019/07/28'
+      this.getTodayDate()
     );
+
     domUpdates.showAllOrdersList(allOrdersToday);
 
     let todayRoomServicesRevenue = this.bookingMagic.calculateNightlyRoomServiceRevenue(
-      '2019/07/28'
+      this.getTodayDate()
     );
+
     domUpdates.showRoomServicesRevenueOnOrdersPage(todayRoomServicesRevenue);
+  }
+
+  roomsPageDomUpdates() {
+    let mostPopular = this.bookingMagic.mostRoomsBookedMap();
+    domUpdates.showMostPopularDate(mostPopular);
+
+    let leastPopular = this.bookingMagic.leastRoomsBookedMap();
+    domUpdates.showLeastPopularDate(leastPopular);
   }
 
   getTodayDate() {

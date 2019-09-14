@@ -63,6 +63,14 @@ const domUpdates = {
 
   showOrderHistoryTotal(revenue) {
     $('.lifetime-order-spending').text(`Lifetime Spending: $${revenue}`);
+  },
+
+  showMostPopularDate(maxDate) {
+    $('.most-popular-date').text(maxDate);
+  },
+
+  showLeastPopularDate(minDate) {
+    $('.date-with-most-rooms').text(minDate);
   }
 };
 
