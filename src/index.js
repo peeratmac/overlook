@@ -105,5 +105,4 @@ $('.customer-tab-search-customer').on('click', () => {
   domUpdates.displayCustomerName(searchedCustomer);
   // Todo: need to build this function out more -> after search, info on other tabs need to change based on currently selected customer
   hotel.currentUser = searchedCustomer;
-  console.log(hotel.currentUser);
 });

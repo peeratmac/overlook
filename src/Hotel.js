@@ -10,7 +10,7 @@ class Hotel {
     this.roomServiceData = roomServices;
     this.users = [];
     this.bookingMagic;
-    this.currentUser;
+    this.currentUser = '';
   }
 
   mainHotelHandler() {
@@ -109,8 +109,26 @@ class Hotel {
     });
   }
 
-  lookUpNewCustomerHandler() {
-    // Todo: id, name, roomData, bookingData, roomServiceData (Needed these things to instantiate new Customer)
+  // * Look Up Customer
+
+  getCustomerID2(nameInput) {
+    let idX = this.userData.find(user => user.name === nameInput).id;
+    return idX;
+  }
+
+  lookUpCustomerMeals(searchedCustomer) {
+    this.currentUser = searchedCustomer;
+    let idX = this.getCustomerID2(searchedCustomer);
+    return this.getUserRoomServicesMap(idX);
+  }
+
+  lookUpCustomerTotalMeals(searchedCustomer) {
+    this.currentUser = searchedCustomer;
+    let idX = this.getCustomerID2(searchedCustomer);
+
+    return this.getUserRoomServices(idX).reduce((acc, foodItem) => {
+      return (acc = acc + foodItem.totalCost);
+    }, 0);
   }
 }
 

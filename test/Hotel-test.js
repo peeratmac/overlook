@@ -65,4 +65,21 @@ describe('HOTEL', () => {
     expect(hotel.getUserRoomServices(14)).to.eql(result);
     expect(hotel.getUserRoomServicesMap(14)).to.eql(mapResult);
   });
+
+  it('should return all time order history for room services based on current customer searched', () => {
+    let carolinaAllTimeMeals = [
+      ' Menu: Fantastic Metal Sandwich, Bill: 21.6',
+      ' Menu: Generic Soft Sandwich, Bill: 12.77'
+    ];
+    expect(hotel.lookUpCustomerMeals('Carolina Greenfelder')).to.eql(
+      carolinaAllTimeMeals
+    );
+  });
+
+  it('should calculate specific customer all time room service cost', () => {
+    let carolinaAllTimeCost = 34.370000000000005;
+    expect(hotel.lookUpCustomerTotalMeals('Carolina Greenfelder')).to.eql(
+      carolinaAllTimeCost
+    );
+  });
 });
