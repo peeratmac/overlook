@@ -12,16 +12,27 @@ import Hotel from '../src/Hotel';
 import RoomService from '../src/RoomService';
 import domUpdates from '../src/domUpdates';
 
-// NEED SPY
-
-chai.spy.on(domUpdates, [], () => {});
+chai.spy.on(
+  domUpdates,
+  [
+    'showRoomsAvailable',
+    'showOccupancyPercentage',
+    'showRoomsRevenue',
+    'showRoomServicesRevenue',
+    'showTotalRevenue',
+    'showAllOrdersList',
+    'showRoomServicesRevenueOnOrdersPage',
+    'updateSelectedDateText'
+  ],
+  () => {}
+);
 
 describe('BOOKING', () => {
   let hotel, booking;
   beforeEach(() => {
     hotel = new Hotel(data.users, data.rooms, data.bookings, data.roomServices);
     hotel.mainHotelHandler();
-    // hotel.domDisplayMainPage();
+    hotel.mainPageDomUpdates();
   });
 
   it('should expect main hotel handler to be able to find the rooms booked on the date', () => {
@@ -81,6 +92,39 @@ describe('BOOKING', () => {
 
   // * Room Services
   it('should be able to find all room services order for the day', () => {
-    console.log(hotel.bookingMagic.findRoomServicesOrder('2019/07/28'));
+    let roomServiceOrderJuly28 = [
+      {
+        userID: 91,
+        date: '2019/07/28',
+        food: 'Licensed Soft Sandwich',
+        totalCost: 20.09
+      },
+      {
+        userID: 46,
+        date: '2019/07/28',
+        food: 'Handmade Cotton Sandwich',
+        totalCost: 24.74
+      },
+      {
+        userID: 53,
+        date: '2019/07/28',
+        food: 'Refined Wooden Sandwich',
+        totalCost: 20.52
+      }
+    ];
+    expect(hotel.bookingMagic.findRoomServicesOrder('2019/07/28')).to.eql(
+      roomServiceOrderJuly28
+    );
+  });
+
+  it('should be able to map out the room services order in the correct format that will get displayed on the DOM', () => {
+    let roomServiceOrderJuly28 = [
+      ' Menu: Licensed Soft Sandwich, Bill: 20.09',
+      ' Menu: Handmade Cotton Sandwich, Bill: 24.74',
+      ' Menu: Refined Wooden Sandwich, Bill: 20.52'
+    ];
+    expect(hotel.bookingMagic.findRoomServicesOrderMap('2019/07/28')).to.eql(
+      roomServiceOrderJuly28
+    );
   });
 });

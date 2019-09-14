@@ -14,7 +14,7 @@ class Hotel {
     // Todo: today's date, search date, search room type, search specific customer/user, what is the current customer
   }
 
-  // ! commenting out domUpdates due to jQuery requires a window with a document
+  // ! commenting out domUpdates due to jQuery requires a window with a document - need chai spy
 
   mainHotelHandler() {
     this.bookingMagic = new Booking(
@@ -28,6 +28,12 @@ class Hotel {
     let roomsBookedOnGivenDate = this.bookingMagic.findRoomsBookedOnGivenDate(
       this.getTodayDate()
     );
+
+    return roomsBookedOnGivenDate;
+  }
+
+  mainPageDomUpdates() {
+    this.mainHotelHandler();
 
     let roomsAvailable = this.bookingMagic.calculateNumberOfRoomsAvailable(
       this.getTodayDate()
@@ -53,8 +59,19 @@ class Hotel {
       this.getTodayDate()
     );
     domUpdates.showTotalRevenue(totalRevenue);
+  }
 
-    return roomsBookedOnGivenDate;
+  ordersPageDomUpdates() {
+    // ! Hardcoded in the date with data for right now to display
+    let allOrdersToday = this.bookingMagic.findRoomServicesOrderMap(
+      '2019/07/28'
+    );
+    domUpdates.showAllOrdersList(allOrdersToday);
+
+    let todayRoomServicesRevenue = this.bookingMagic.calculateNightlyRoomServiceRevenue(
+      '2019/07/28'
+    );
+    domUpdates.showRoomServicesRevenueOnOrdersPage(todayRoomServicesRevenue);
   }
 
   getTodayDate() {

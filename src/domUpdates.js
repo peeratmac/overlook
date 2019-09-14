@@ -30,6 +30,27 @@ const domUpdates = {
 
   showTotalRevenue(revenue) {
     $('.total-revenue').text(`$${revenue} total revenue today`);
+  },
+
+  // Orders/RoomServices
+  showAllOrdersList(listOfOrders) {
+    $('.all-orders-today-list').text(`${listOfOrders}`);
+  },
+
+  showRoomServicesRevenueOnOrdersPage(revenue) {
+    $('.order-spending').text(`Total Orders Today: $${revenue}`);
+  },
+
+  updateSelectedDateText(date) {
+    $('.selected-date-orders').text(date);
+  },
+
+  showAllOrdersListForDate(listOfOrders) {
+    $('.all-orders-selected-date-list').text(`${listOfOrders}`);
+  },
+
+  showRoomServicesRevenueOnOrdersPageForDate(revenue) {
+    $('.order-spending-selected-date').text(`Total Orders: $${revenue}`);
   }
 };
 

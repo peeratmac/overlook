@@ -57,6 +57,12 @@ class Booking {
     let ordersPlaced = this.roomServices.filter(order => order.date === date);
     return ordersPlaced;
   }
+
+  findRoomServicesOrderMap(date) {
+    return this.findRoomServicesOrder(date).map(order => {
+      return ` Menu: ${order.food}, Bill: ${order.totalCost}`;
+    });
+  }
 }
 
 export default Booking;
