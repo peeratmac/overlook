@@ -104,5 +104,8 @@ $('.customer-tab-search-customer').on('click', () => {
   let searchedCustomer = $('.customer-tab-input').val();
   domUpdates.displayCustomerName(searchedCustomer);
   // Todo: need to build this function out more -> after search, info on other tabs need to change based on currently selected customer
-  hotel.currentUser = searchedCustomer;
+  let orderHistoryList = hotel.lookUpCustomerMeals(searchedCustomer);
+  domUpdates.showOrderHistoryList(orderHistoryList);
+  let orderHistoryTotal = hotel.lookUpCustomerTotalMeals(searchedCustomer);
+  domUpdates.showOrderHistoryTotal(orderHistoryTotal);
 });
