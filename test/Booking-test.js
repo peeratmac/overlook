@@ -26,7 +26,8 @@ chai.spy.on(
     'showAllOrdersListForDate',
     'showRoomServicesRevenueOnOrdersPageForDate',
     'displayCustomerName',
-    'showOrderHistoryList'
+    'showOrderHistoryList',
+    'showOrderHistoryTotal'
   ],
   () => {}
 );
@@ -130,5 +131,9 @@ describe('BOOKING', () => {
     expect(hotel.bookingMagic.findRoomServicesOrderMap('2019/07/28')).to.eql(
       roomServiceOrderJuly28
     );
+  });
+
+  it.only('should find the date with the highest number of rooms booked', () => {
+    console.log(hotel.bookingMagic.findDateWithMostRoomsBooked());
   });
 });

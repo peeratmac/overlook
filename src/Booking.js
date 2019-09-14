@@ -63,6 +63,18 @@ class Booking {
       return ` Menu: ${order.food}, Bill: ${order.totalCost}`;
     });
   }
+
+  // * Rooms Booked (Highest and Lowest)
+
+  findDateWithMostRoomsBooked() {
+    let x = this.bookings.reduce((acc, booking) => {
+      !acc[booking.date] ? (acc[booking.date] = 1) : acc[booking.date]++;
+      return acc;
+    }, {});
+
+    let maxRoomDates = '';
+    let maxRoomCount = '';
+  }
 }
 
 export default Booking;
