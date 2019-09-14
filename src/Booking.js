@@ -67,13 +67,19 @@ class Booking {
   // * Rooms Booked (Highest and Lowest)
 
   findDateWithMostRoomsBooked() {
-    let x = this.bookings.reduce((acc, booking) => {
-      !acc[booking.date] ? (acc[booking.date] = 1) : acc[booking.date]++;
-      return acc;
-    }, {});
+    let bookingDataWithDateAndRoomsCount = this.bookings.reduce(
+      (acc, booking) => {
+        !acc[booking.date] ? (acc[booking.date] = 1) : acc[booking.date]++;
+        return acc;
+      },
+      {}
+    );
 
-    let maxRoomDates = '';
-    let maxRoomCount = '';
+    let maxRoomCount = Object.values(bookingDataWithDateAndRoomsCount).sort(
+      (a, b) => b - a
+    )[0];
+    console.log(maxRoomCount);
+    let maxRoomDates = Object.keys(bookingDataWithDateAndRoomsCount);
   }
 }
 
