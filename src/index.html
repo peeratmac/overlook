@@ -10,7 +10,9 @@
   <body>
     <header>
       <h1 class="header__title">Overlook Hotel</h1>
-      <h2 class="header__customer-name">Current Customer Selected:</h2>
+      <h2 class="header__customer-name">
+        Current Customer: <span class="customer-name">X</span>
+      </h2>
       <h2 class="header__date">Date Here XX/XX/XXXX</h2>
     </header>
     <main>
@@ -35,7 +37,7 @@
           </div>
           <div id="orders-tab">
             <h2 class="all-orders-today">All Orders Today:</h2>
-            <p class="all-orders-today-list">SAMMICH</p>
+            <p class="all-orders-today-list">(SALMON LOADING)</p>
             <p class="order-spending">Total Orders Today: $XXX</p>
             <h2 class="all-orders-list">
               All Orders on
@@ -49,7 +51,9 @@
             <button class="orders-date-search-button" value="Search Orders">
               Search Orders
             </button>
-            <p class="all-orders-selected-date-list">SALMON</p>
+            <p class="all-orders-selected-date-list">
+              (SALMON? - search the orders above)
+            </p>
             <p class="order-spending-selected-date">Total Orders: $XXX</p>
             <h2>Current Customer</h2>
             <p class="order-history">Order History:</p>
@@ -87,17 +91,17 @@
             <p class="customer-rooms-history-list">List Rooms and Dates Here</p>
           </div>
           <div id="customer-tab">
-            <h2 class="main__section__h2">Search for Customer</h2>
+            <h2 class="customer-tab-h2">Search for Customer</h2>
             <input
-              class="main__section__input"
+              class="customer-tab-input"
               type="text"
               placeholder="Search Customer"
             />
             <button
-              class="main__section__button-add-customer"
-              value="Add Customer"
+              class="customer-tab-search-customer"
+              value="Search Customer"
             >
-              Add Customer
+              Search Customer
             </button>
             <div class="search-result">Search Result List Here</div>
           </div>

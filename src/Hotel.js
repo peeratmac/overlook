@@ -10,11 +10,8 @@ class Hotel {
     this.roomServiceData = roomServices;
     this.users = [];
     this.bookingMagic;
-
-    // Todo: today's date, search date, search room type, search specific customer/user, what is the current customer
+    this.currentUser;
   }
-
-  // ! commenting out domUpdates due to jQuery requires a window with a document - need chai spy
 
   mainHotelHandler() {
     this.bookingMagic = new Booking(
@@ -63,6 +60,7 @@ class Hotel {
 
   ordersPageDomUpdates() {
     // ! Hardcoded in the date with data for right now to display
+    // ! Don't forget to change this and remove the comment^^
     let allOrdersToday = this.bookingMagic.findRoomServicesOrderMap(
       '2019/07/28'
     );
@@ -99,6 +97,16 @@ class Hotel {
     let newUser = new Customer(id, name, [], [], []);
     this.userData.push(newUser);
     return this.userData[id - 1];
+  }
+
+  getUserRoomServices(userID) {
+    return this.roomServiceData.filter(order => order.userID === userID);
+  }
+
+  getUserRoomServicesMap(userID) {
+    return this.getUserRoomServices(userID).map(order => {
+      return ` Menu: ${order.food}, Bill: ${order.totalCost}`;
+    });
   }
 }
 
