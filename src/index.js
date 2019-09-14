@@ -78,5 +78,7 @@ setTimeout(() => {
   let todayDate = hotel.getTodayDate();
   domUpdates.showDate(todayDate);
   hotel.mainHotelHandler();
-  domUpdates.showCurrentUser(dataFromFetch.users[3].name);
+  hotel.mainPageDomUpdates();
+  domUpdates.showCurrentUser(dataFromFetch.users[5].name);
+  console.log(hotel.bookingMagic);
 }, 3000);

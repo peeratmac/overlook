@@ -29,6 +29,12 @@ class Hotel {
       this.getTodayDate()
     );
 
+    return roomsBookedOnGivenDate;
+  }
+
+  mainPageDomUpdates() {
+    this.mainHotelHandler();
+
     let roomsAvailable = this.bookingMagic.calculateNumberOfRoomsAvailable(
       this.getTodayDate()
     );
@@ -53,8 +59,6 @@ class Hotel {
       this.getTodayDate()
     );
     domUpdates.showTotalRevenue(totalRevenue);
-
-    return roomsBookedOnGivenDate;
   }
 
   getTodayDate() {

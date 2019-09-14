@@ -12,14 +12,24 @@ import Hotel from '../src/Hotel';
 import RoomService from '../src/RoomService';
 import domUpdates from '../src/domUpdates';
 
-chai.spy.on(domUpdates, [], () => {});
+chai.spy.on(
+  domUpdates,
+  [
+    'showRoomsAvailable',
+    'showOccupancyPercentage',
+    'showRoomsRevenue',
+    'showRoomServicesRevenue',
+    'showTotalRevenue'
+  ],
+  () => {}
+);
 
 describe('BOOKING', () => {
   let hotel, booking;
   beforeEach(() => {
     hotel = new Hotel(data.users, data.rooms, data.bookings, data.roomServices);
     hotel.mainHotelHandler();
-    // hotel.domDisplayMainPage();
+    hotel.mainPageDomUpdates();
   });
 
   it('should expect main hotel handler to be able to find the rooms booked on the date', () => {
@@ -78,7 +88,7 @@ describe('BOOKING', () => {
   });
 
   // * Room Services
-  it('should be able to find all room services order for the day', () => {
+  it.only('should be able to find all room services order for the day', () => {
     console.log(hotel.bookingMagic.findRoomServicesOrder('2019/07/28'));
   });
 });
