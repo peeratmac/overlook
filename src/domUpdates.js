@@ -35,6 +35,14 @@ const domUpdates = {
   // Orders/RoomServices
   showAllOrdersList(listOfOrders) {
     $('.all-orders-today-list').text(`${listOfOrders}`);
+  },
+
+  showRoomServicesRevenueOnOrdersPage(revenue) {
+    $('.order-spending').text(`Total Orders Today: $${revenue}`);
+  },
+
+  updateSelectedDateText(date) {
+    $('.selected-date-orders').text(date);
   }
 };
 

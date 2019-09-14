@@ -19,7 +19,9 @@ chai.spy.on(
     'showOccupancyPercentage',
     'showRoomsRevenue',
     'showRoomServicesRevenue',
-    'showTotalRevenue'
+    'showTotalRevenue',
+    'showAllOrdersList',
+    'showRoomServicesRevenueOnOrdersPage'
   ],
   () => {}
 );

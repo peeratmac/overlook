@@ -67,6 +67,11 @@ class Hotel {
       '2019/07/28'
     );
     domUpdates.showAllOrdersList(allOrdersToday);
+
+    let todayRoomServicesRevenue = this.bookingMagic.calculateNightlyRoomServiceRevenue(
+      '2019/07/28'
+    );
+    domUpdates.showRoomServicesRevenueOnOrdersPage(todayRoomServicesRevenue);
   }
 
   getTodayDate() {
