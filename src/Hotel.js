@@ -108,6 +108,10 @@ class Hotel {
       return ` Menu: ${order.food}, Bill: ${order.totalCost}`;
     });
   }
+
+  lookUpNewCustomerHandler() {
+    // Todo: id, name, roomData, bookingData, roomServiceData (Needed these things to instantiate new Customer)
+  }
 }
 
 export default Hotel;
