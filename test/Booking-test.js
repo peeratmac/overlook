@@ -26,7 +26,10 @@ chai.spy.on(
     'showAllOrdersListForDate',
     'showRoomServicesRevenueOnOrdersPageForDate',
     'displayCustomerName',
-    'showOrderHistoryList'
+    'showOrderHistoryList',
+    'showOrderHistoryTotal',
+    'showMostPopularDate',
+    'showLeastPopularDate'
   ],
   () => {}
 );
@@ -130,5 +133,18 @@ describe('BOOKING', () => {
     expect(hotel.bookingMagic.findRoomServicesOrderMap('2019/07/28')).to.eql(
       roomServiceOrderJuly28
     );
+  });
+
+  it('should find the date with the highest number of rooms booked along with count', () => {
+    let max = {
+      maxRoomDates: ['2019/10/28', '2019/09/07', '2019/10/23'],
+      maxRoomCount: 27
+    };
+    expect(hotel.bookingMagic.findDateWithMostRoomsBooked()).to.eql(max);
+  });
+
+  it('should find the date with the lowest number of rooms booked along with count', () => {
+    let min = { minRoomDates: ['2019/07/23'], minRoomCount: 10 };
+    expect(hotel.bookingMagic.findDateWithLeastRoomsBooked()).to.eql(min);
   });
 });
