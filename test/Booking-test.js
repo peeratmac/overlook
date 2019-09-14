@@ -133,7 +133,16 @@ describe('BOOKING', () => {
     );
   });
 
-  it.only('should find the date with the highest number of rooms booked', () => {
-    console.log(hotel.bookingMagic.findDateWithMostRoomsBooked());
+  it('should find the date with the highest number of rooms booked along with count', () => {
+    let max = {
+      maxRoomDates: ['2019/10/28', '2019/09/07', '2019/10/23'],
+      maxRoomCount: 27
+    };
+    expect(hotel.bookingMagic.findDateWithMostRoomsBooked()).to.eql(max);
+  });
+
+  it('should find the date with the lowest number of rooms booked along with count', () => {
+    let min = { minRoomDates: ['2019/07/23'], minRoomCount: 10 };
+    expect(hotel.bookingMagic.findDateWithLeastRoomsBooked()).to.eql(min);
   });
 });

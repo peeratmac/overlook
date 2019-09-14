@@ -78,8 +78,34 @@ class Booking {
     let maxRoomCount = Object.values(bookingDataWithDateAndRoomsCount).sort(
       (a, b) => b - a
     )[0];
-    console.log(maxRoomCount);
-    let maxRoomDates = Object.keys(bookingDataWithDateAndRoomsCount);
+
+    let maxRoomDates = Object.keys(bookingDataWithDateAndRoomsCount).filter(
+      date => bookingDataWithDateAndRoomsCount[date] === maxRoomCount
+    );
+
+    return { maxRoomDates: maxRoomDates, maxRoomCount: maxRoomCount };
+  }
+
+  findDateWithLeastRoomsBooked() {
+    let bookingDataWithDateAndRoomsCount = this.bookings.reduce(
+      (acc, booking) => {
+        !acc[booking.date] ? (acc[booking.date] = 1) : acc[booking.date]++;
+        return acc;
+      },
+      {}
+    );
+
+    let lengthOfData = Object.values(bookingDataWithDateAndRoomsCount).length;
+
+    let minRoomCount = Object.values(bookingDataWithDateAndRoomsCount).sort(
+      (a, b) => b - a
+    )[lengthOfData - 1];
+
+    let minRoomDates = Object.keys(bookingDataWithDateAndRoomsCount).filter(
+      date => bookingDataWithDateAndRoomsCount[date] === minRoomCount
+    );
+
+    return { minRoomDates: minRoomDates, minRoomCount: minRoomCount };
   }
 }
 
