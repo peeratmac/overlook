@@ -61,6 +61,14 @@ class Hotel {
     domUpdates.showTotalRevenue(totalRevenue);
   }
 
+  ordersPageDomUpdates() {
+    // ! Hardcoded in the date with data for right now to display
+    let allOrdersToday = this.bookingMagic.findRoomServicesOrderMap(
+      '2019/07/28'
+    );
+    domUpdates.showAllOrdersList(allOrdersToday);
+  }
+
   getTodayDate() {
     let date = `${new Date().getFullYear()}/${String(
       new Date().getMonth() + 1

@@ -30,6 +30,11 @@ const domUpdates = {
 
   showTotalRevenue(revenue) {
     $('.total-revenue').text(`$${revenue} total revenue today`);
+  },
+
+  // Orders/RoomServices
+  showAllOrdersList(listOfOrders) {
+    $('.all-orders-today-list').text(`${listOfOrders}`);
   }
 };
 
