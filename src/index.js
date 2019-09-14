@@ -94,7 +94,9 @@ $('.orders-date-search-button').on('click', () => {
   domUpdates.updateSelectedDateText(searchedDate);
   let result = hotel.bookingMagic.findRoomServicesOrderMap(searchedDate);
   domUpdates.showAllOrdersListForDate(result);
-  let revenueResult = hotel.bookingMagic.calculateNightlyRoomServiceRevenue(searchedDate);
+  let revenueResult = hotel.bookingMagic.calculateNightlyRoomServiceRevenue(
+    searchedDate
+  );
   domUpdates.showRoomServicesRevenueOnOrdersPageForDate(revenueResult);
 });
 
@@ -102,4 +104,8 @@ $('.customer-tab-search-customer').on('click', () => {
   let searchedCustomer = $('.customer-tab-input').val();
   domUpdates.displayCustomerName(searchedCustomer);
   // Todo: need to build this function out more -> after search, info on other tabs need to change based on currently selected customer
-})
+  let orderHistoryList = hotel.lookUpCustomerMeals(searchedCustomer);
+  domUpdates.showOrderHistoryList(orderHistoryList);
+  let orderHistoryTotal = hotel.lookUpCustomerTotalMeals(searchedCustomer);
+  domUpdates.showOrderHistoryTotal(orderHistoryTotal);
+});

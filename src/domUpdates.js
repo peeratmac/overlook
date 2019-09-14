@@ -55,6 +55,14 @@ const domUpdates = {
 
   displayCustomerName(name) {
     $('.customer-name').text(name);
+  },
+
+  showOrderHistoryList(listOfOrders) {
+    $('.order-history-list').text(listOfOrders);
+  },
+
+  showOrderHistoryTotal(revenue) {
+    $('.lifetime-order-spending').text(`Lifetime Spending: $${revenue}`);
   }
 };
 

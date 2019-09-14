@@ -10,7 +10,7 @@ class Hotel {
     this.roomServiceData = roomServices;
     this.users = [];
     this.bookingMagic;
-    this.currentUser;
+    this.currentUser = '';
   }
 
   mainHotelHandler() {
@@ -107,6 +107,28 @@ class Hotel {
     return this.getUserRoomServices(userID).map(order => {
       return ` Menu: ${order.food}, Bill: ${order.totalCost}`;
     });
+  }
+
+  // * Look Up Customer
+
+  getCustomerID2(nameInput) {
+    let idX = this.userData.find(user => user.name === nameInput).id;
+    return idX;
+  }
+
+  lookUpCustomerMeals(searchedCustomer) {
+    this.currentUser = searchedCustomer;
+    let idX = this.getCustomerID2(searchedCustomer);
+    return this.getUserRoomServicesMap(idX);
+  }
+
+  lookUpCustomerTotalMeals(searchedCustomer) {
+    this.currentUser = searchedCustomer;
+    let idX = this.getCustomerID2(searchedCustomer);
+
+    return this.getUserRoomServices(idX).reduce((acc, foodItem) => {
+      return (acc = acc + foodItem.totalCost);
+    }, 0);
   }
 }
 
