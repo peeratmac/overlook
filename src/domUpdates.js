@@ -9,7 +9,7 @@ const domUpdates = {
   },
 
   showCurrentUser(name) {
-    $('.header__customer-name').text(`Current Customer: ${name}`);
+    $('.customer-name').text(`${name}`);
   },
 
   showOccupancyPercentage(percent) {
@@ -51,6 +51,10 @@ const domUpdates = {
 
   showRoomServicesRevenueOnOrdersPageForDate(revenue) {
     $('.order-spending-selected-date').text(`Total Orders: $${revenue}`);
+  },
+
+  displayCustomerName(name) {
+    $('.customer-name').text(name);
   }
 };
 

@@ -86,7 +86,7 @@ setTimeout(() => {
   hotel.mainHotelHandler();
   hotel.mainPageDomUpdates();
   hotel.ordersPageDomUpdates();
-  domUpdates.showCurrentUser(dataFromFetch.users[5].name);
+  domUpdates.showCurrentUser(dataFromFetch.users[0].name);
 }, 3000);
 
 $('.orders-date-search-button').on('click', () => {
@@ -97,3 +97,9 @@ $('.orders-date-search-button').on('click', () => {
   let revenueResult = hotel.bookingMagic.calculateNightlyRoomServiceRevenue(searchedDate);
   domUpdates.showRoomServicesRevenueOnOrdersPageForDate(revenueResult);
 });
+
+$('.customer-tab-search-customer').on('click', () => {
+  let searchedCustomer = $('.customer-tab-input').val();
+  domUpdates.displayCustomerName(searchedCustomer);
+  // Todo: need to build this function out more -> after search, info on other tabs need to change based on currently selected customer
+})
