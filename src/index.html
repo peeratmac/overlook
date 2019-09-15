@@ -13,7 +13,7 @@
       <h2 class="header__customer-name">
         Current Customer: <span class="customer-name">X</span>
       </h2>
-      <h2 class="header__date">Date Here XX/XX/XXXX</h2>
+      <h2><span class="header__date">Date</span></h2>
     </header>
     <main>
       <section></section>
@@ -26,7 +26,6 @@
         </ul>
         <div class="tabs-stage">
           <div id="main-tab">
-            <p class="today-date">XX/XX/XXXX</p>
             <p class="total-rooms-available">XX rooms available</p>
             <p class="occupancy-percentage">XX% occupancy right now</p>
             <p class="room-revenue">$XX.XX rooms revenue today</p>
@@ -57,7 +56,7 @@
             <p class="order-spending-selected-date">
               Total Orders: (total will be shown here after search query)
             </p>
-            <h2>Current Customer</h2>
+            <h2><span class="customer-span">Current Customer</span></h2>
             <p class="order-history">Order History:</p>
             <section class="order-history-list">
               Order History will be shown after customer has been selected (Go
@@ -92,12 +91,15 @@
               </container>
             </p>
             <h2 class="customer-rooms-history">
-              Current Customer Room Booking History
+              <span class="customer-span">Current Customer</span> Room Booking
+              History
             </h2>
             <p class="customer-rooms-history-list">List Rooms and Dates Here</p>
           </div>
           <div id="customer-tab">
-            <h2 class="customer-tab-h2">Search for Customer</h2>
+            <h2 class="customer-tab-h2">
+              Search for <span class="customer-span">Customer</span>
+            </h2>
             <input
               class="customer-tab-input"
               type="text"
