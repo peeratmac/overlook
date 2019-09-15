@@ -82,4 +82,34 @@ describe('HOTEL', () => {
       carolinaAllTimeCost
     );
   });
+
+  it('should be able to look up customer booking history based on the search of specific customer', () => {
+    const customerHistory = [
+      { userID: 4, date: '2019/10/19', roomNumber: 5 },
+      { userID: 4, date: '2019/08/02', roomNumber: 45 },
+      { userID: 4, date: '2019/07/27', roomNumber: 7 },
+      { userID: 4, date: '2019/09/18', roomNumber: 36 },
+      { userID: 4, date: '2019/08/09', roomNumber: 50 },
+      { userID: 4, date: '2019/10/04', roomNumber: 7 },
+      { userID: 4, date: '2019/10/02', roomNumber: 30 },
+      { userID: 4, date: '2019/10/19', roomNumber: 15 },
+      { userID: 4, date: '2019/09/22', roomNumber: 10 },
+      { userID: 4, date: '2019/10/02', roomNumber: 20 },
+      { userID: 4, date: '2019/10/11', roomNumber: 48 },
+      { userID: 4, date: '2019/07/28', roomNumber: 18 },
+      { userID: 4, date: '2019/08/10', roomNumber: 6 },
+      { userID: 4, date: '2019/09/28', roomNumber: 28 },
+      { userID: 4, date: '2019/07/29', roomNumber: 41 },
+      { userID: 4, date: '2019/09/24', roomNumber: 18 },
+      { userID: 4, date: '2019/09/16', roomNumber: 24 },
+      { userID: 4, date: '2019/07/31', roomNumber: 33 },
+      { userID: 4, date: '2019/09/16', roomNumber: 32 },
+      { userID: 4, date: '2019/08/25', roomNumber: 33 },
+      { userID: 4, date: '2019/10/22', roomNumber: 40 }
+    ];
+
+    expect(hotel.lookUpCustomerBookingHistory('Brook Christiansen')).to.eql(
+      customerHistory
+    );
+  });
 });

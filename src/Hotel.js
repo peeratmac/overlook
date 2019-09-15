@@ -141,6 +141,26 @@ class Hotel {
       return (acc = acc + foodItem.totalCost);
     }, 0);
   }
+
+  // * Customer Booking History
+  lookUpCustomerBookingHistory(searchedCustomer) {
+    this.currentUser = searchedCustomer;
+    let idX = this.getCustomerID2(searchedCustomer);
+
+    let roomsBookedOnGivenDate = this.bookingData.filter(
+      booking => booking.userID === idX
+    );
+
+    return roomsBookedOnGivenDate;
+  }
+
+  lookUpCustomerBookingHistoryMap(searchedCustomer) {
+    return this.lookUpCustomerBookingHistory(searchedCustomer).map(
+      userHistory => {
+        return ` Date: ${userHistory.date}, Room: ${userHistory.roomNumber} `;
+      }
+    );
+  }
 }
 
 export default Hotel;
