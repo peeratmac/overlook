@@ -119,6 +119,32 @@ class Booking {
       this.findDateWithLeastRoomsBooked().minRoomDates
     } with ${this.findDateWithLeastRoomsBooked().minRoomCount}  night(s).`;
   }
+
+  // * Find Available Rooms on a given date
+
+  listOfAllUnavailableRooms(date) {
+    return this.findRoomsBookedOnGivenDate(date).map(room => {
+      return room.roomNumber;
+    });
+  }
+
+  listOfAvailableRoomsWithType(date, type) {
+    let availableRooms = [];
+    let roomsInUsed = this.findRoomsBookedOnGivenDate(date);
+
+    availableRooms = this.rooms
+      .filter(room => {
+        if (
+          roomsInUsed.indexOf(room.number) === -1 &&
+          room.roomType === type.toLowerCase()
+        ) {
+          return room;
+        }
+      })
+      .sort((a, b) => a.number - b.number);
+
+    return availableRooms;
+  }
 }
 
 export default Booking;

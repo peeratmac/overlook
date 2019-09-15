@@ -110,3 +110,8 @@ $('.customer-tab-search-customer').on('click', () => {
   let orderHistoryTotal = hotel.lookUpCustomerTotalMeals(searchedCustomer);
   domUpdates.showOrderHistoryTotal(orderHistoryTotal);
 });
+
+$('.find-room-button').on('click', () => {
+  let selectedOption = $('.select-option option:selected').text();
+  console.log(selectedOption);
+});
