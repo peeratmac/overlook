@@ -112,6 +112,9 @@ $('.customer-tab-search-customer').on('click', () => {
 });
 
 $('.find-room-button').on('click', () => {
+  domUpdates.appendEmptyRoomList();
   let selectedOption = $('.select-option option:selected').text();
   console.log(selectedOption);
+  let searchedDate = $('.rooms-date-input').val();
+  hotel.bookingMagic.listOfAvailableRoomsWithType(searchedDate, selectedOption);
 });

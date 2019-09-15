@@ -29,7 +29,9 @@ chai.spy.on(
     'showOrderHistoryList',
     'showOrderHistoryTotal',
     'showMostPopularDate',
-    'showLeastPopularDate'
+    'showLeastPopularDate',
+    'appendRoomList',
+    'appendEmptyRoomList'
   ],
   () => {}
 );
@@ -173,7 +175,7 @@ describe('BOOKING', () => {
     );
   });
 
-  it.only('it should list all available rooms with all the room information from rooms dataset', () => {
+  it('it should list all available rooms with all the room information from rooms dataset', () => {
     let roomInfo = [
       {
         number: 1,
