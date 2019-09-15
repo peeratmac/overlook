@@ -29,7 +29,9 @@ chai.spy.on(
     'showOrderHistoryList',
     'showOrderHistoryTotal',
     'showMostPopularDate',
-    'showLeastPopularDate'
+    'showLeastPopularDate',
+    'appendRoomList',
+    'appendEmptyRoomList'
   ],
   () => {}
 );
@@ -146,5 +148,105 @@ describe('BOOKING', () => {
   it('should find the date with the lowest number of rooms booked along with count', () => {
     let min = { minRoomDates: ['2019/07/23'], minRoomCount: 10 };
     expect(hotel.bookingMagic.findDateWithLeastRoomsBooked()).to.eql(min);
+  });
+
+  it('should be able to list all unavailable rooms based on a given date', () => {
+    let rooms = [
+      40,
+      35,
+      42,
+      2,
+      16,
+      3,
+      4,
+      32,
+      8,
+      30,
+      26,
+      11,
+      49,
+      37,
+      17,
+      22,
+      13
+    ];
+    expect(hotel.bookingMagic.listOfAllUnavailableRooms('2019/09/13')).to.eql(
+      rooms
+    );
+  });
+
+  it('it should list all available rooms with all the room information from rooms dataset', () => {
+    let roomInfo = [
+      {
+        number: 1,
+        roomType: 'residential suite',
+        bidet: false,
+        bedSize: 'twin',
+        numBeds: 1,
+        costPerNight: 265.03
+      },
+      {
+        number: 7,
+        roomType: 'residential suite',
+        bidet: false,
+        bedSize: 'full',
+        numBeds: 2,
+        costPerNight: 376.56
+      },
+      {
+        number: 9,
+        roomType: 'residential suite',
+        bidet: true,
+        bedSize: 'twin',
+        numBeds: 1,
+        costPerNight: 327.76
+      },
+      {
+        number: 13,
+        roomType: 'residential suite',
+        bidet: false,
+        bedSize: 'full',
+        numBeds: 1,
+        costPerNight: 372.83
+      },
+      {
+        number: 19,
+        roomType: 'residential suite',
+        bidet: true,
+        bedSize: 'queen',
+        numBeds: 2,
+        costPerNight: 356.33
+      },
+      {
+        number: 22,
+        roomType: 'residential suite',
+        bidet: false,
+        bedSize: 'queen',
+        numBeds: 1,
+        costPerNight: 190.26
+      },
+      {
+        number: 28,
+        roomType: 'residential suite',
+        bidet: true,
+        bedSize: 'queen',
+        numBeds: 1,
+        costPerNight: 215.76
+      },
+      {
+        number: 44,
+        roomType: 'residential suite',
+        bidet: false,
+        bedSize: 'queen',
+        numBeds: 1,
+        costPerNight: 368.33
+      }
+    ];
+    expect(
+      hotel.bookingMagic.listOfAvailableRoomsWithType(
+        '2019/09/13',
+        'Residential Suite'
+      )
+    ).to.eql(roomInfo);
   });
 });

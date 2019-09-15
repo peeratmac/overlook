@@ -71,6 +71,21 @@ const domUpdates = {
 
   showLeastPopularDate(minDate) {
     $('.date-with-most-rooms').text(minDate);
+  },
+
+  appendRoomList(roomNumber, roomType, bidet, bedSize, numBeds, costPerNight) {
+    let row1 = $(
+      `<button class="book-room-button-${roomNumber}">Book</button> <h5>Type: ${roomType}</h5>`
+    );
+    let row2 = $(
+      `<p>Bidet: ${bidet}  Bed Size: ${bedSize}  Number of Beds: ${numBeds}</p>`
+    );
+    let row3 = $(`<h4>Nightly Price: ${costPerNight}</h4>`);
+    $('.append-room-list').append(row1, row2, row3);
+  },
+
+  appendEmptyRoomList() {
+    $('.append-room-list').text(`No Rooms Available Today`);
   }
 };
 

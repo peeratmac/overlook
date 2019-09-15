@@ -1,3 +1,4 @@
+import domUpdates from './domUpdates';
 class Booking {
   constructor(users, bookings, roomServices, rooms, dayInQuestion) {
     this.users = users;
@@ -118,6 +119,55 @@ class Booking {
     return `Least Popular Booking Date(s): ${
       this.findDateWithLeastRoomsBooked().minRoomDates
     } with ${this.findDateWithLeastRoomsBooked().minRoomCount}  night(s).`;
+  }
+
+  // * Find Available Rooms on a given date
+
+  listOfAllUnavailableRooms(date) {
+    return this.findRoomsBookedOnGivenDate(date).map(room => {
+      return room.roomNumber;
+    });
+  }
+
+  listOfAvailableRoomsWithType(date, type) {
+    let availableRooms = [];
+    let roomsInUsed = this.findRoomsBookedOnGivenDate(date);
+
+    if (type !== 'All Types') {
+      availableRooms = this.rooms
+        .filter(room => {
+          if (
+            roomsInUsed.indexOf(room.number) === -1 &&
+            room.roomType === type.toLowerCase()
+          ) {
+            return room;
+          }
+        })
+        .sort((a, b) => a.number - b.number);
+    } else {
+      availableRooms = this.rooms
+        .filter(room => {
+          if (roomsInUsed.indexOf(room.number) === -1) {
+            return room;
+          }
+        })
+        .sort((a, b) => a.number - b.number);
+    }
+
+    availableRooms.length > 0
+      ? availableRooms.forEach(room => {
+          domUpdates.appendRoomList(
+            room.number,
+            room.roomType,
+            room.bidet,
+            room.bedSize,
+            room.numBeds,
+            room.costPerNight
+          );
+        })
+      : domUpdates.appendEmptyRoomList();
+
+    return availableRooms;
   }
 }
 
