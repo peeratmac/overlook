@@ -15,12 +15,12 @@ ul {
 
 .tabs-navigation li {
   list-style-type: none;
-  width: 50%;
+  width: 100%;
 }
 
 a,
 a:visited {
-  border: 1px solid black;
+  border: 1px solid #45aaf2;
   color: inherit;
   display: block;
   padding: 10px 0;
@@ -29,12 +29,12 @@ a:visited {
 }
 
 a:hover {
-  color: pink;
+  color: #45aaf2;
 }
 
 .tab-active a {
-  background: yellowgreen;
-  color: red;
+  background: #4b6584;
+  color: #d1d8e0;
   cursor: default;
 }
 

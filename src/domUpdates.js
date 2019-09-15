@@ -86,6 +86,10 @@ const domUpdates = {
 
   appendEmptyRoomList() {
     $('.append-room-list').text(`No Rooms Available Today`);
+  },
+
+  showRoomBookingHistory(info) {
+    $('.customer-rooms-history-list').text(info);
   }
 };
 

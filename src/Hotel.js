@@ -153,6 +153,14 @@ class Hotel {
 
     return roomsBookedOnGivenDate;
   }
+
+  lookUpCustomerBookingHistoryMap(searchedCustomer) {
+    return this.lookUpCustomerBookingHistory(searchedCustomer).map(
+      userHistory => {
+        return ` Date: ${userHistory.date}, Room: ${userHistory.roomNumber} `;
+      }
+    );
+  }
 }
 
 export default Hotel;
