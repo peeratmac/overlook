@@ -90,6 +90,10 @@ const domUpdates = {
 
   showRoomBookingHistory(info) {
     $('.customer-rooms-history-list').text(info);
+  },
+
+  displayRoomSearchedDate(searchedDate) {
+    $('.room-order-date').text(searchedDate);
   }
 };
 

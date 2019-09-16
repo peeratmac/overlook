@@ -29,8 +29,6 @@ let users = fetch(
   .then(data => (users = data.users))
   .catch(error => console.log('Unable to fetch data', error));
 
-setTimeout(() => console.log(users), 2000);
-
 let rooms = fetch(
   'https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms'
 )
@@ -38,16 +36,12 @@ let rooms = fetch(
   .then(data => (rooms = data.rooms))
   .catch(err => console.log('Unable to fetch data', err));
 
-setTimeout(() => console.log(rooms), 3000);
-
 let bookings = fetch(
   'https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings'
 )
   .then(data => data.json())
   .then(data => (bookings = data.bookings))
   .catch(err => console.log('Unable to fetch data', err));
-
-setTimeout(() => console.log(bookings), 3000);
 
 let roomServices = fetch(
   'https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices'
@@ -121,6 +115,7 @@ $('.find-room-button').on('click', () => {
       searchedDate,
       selectedOption
     );
+    domUpdates.displayRoomSearchedDate(searchedDate);
   } else {
     window.alert('Please Enter Appropriate Date Input');
     domUpdates.appendEmptyRoomList();
