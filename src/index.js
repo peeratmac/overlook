@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'jquery-ui-bundle';
 import './css/base.scss';
 
 import Hotel from '../src/Hotel';
@@ -94,17 +95,6 @@ $('.orders-date-search-button').on('click', () => {
   domUpdates.showRoomServicesRevenueOnOrdersPageForDate(revenueResult);
 });
 
-// $('.customer-tab-search-customer').on('click', () => {
-//   let searchedCustomer = $('.customer-tab-input').val();
-//   domUpdates.displayCustomerName(searchedCustomer);
-//   let orderHistoryList = hotel.lookUpCustomerMeals(searchedCustomer);
-//   domUpdates.showOrderHistoryList(orderHistoryList);
-//   let orderHistoryTotal = hotel.lookUpCustomerTotalMeals(searchedCustomer);
-//   domUpdates.showOrderHistoryTotal(orderHistoryTotal);
-//   let roomHistory = hotel.lookUpCustomerBookingHistoryMap(searchedCustomer);
-//   domUpdates.showRoomBookingHistory(roomHistory);
-// });
-
 $('.find-room-button').on('click', () => {
   let selectedOption = $('.select-option option:selected').text();
   console.log(selectedOption);
@@ -141,12 +131,21 @@ function liveSearchCustomer() {
   domUpdates.displayMatchingNames(matchedNames);
 }
 
-$('.customer-tab-input').on('keyup', liveSearchCustomer);
+$('.customer-tab-input').on('keyup', () => {
+  liveSearchCustomer();
+  let searchedCustomer = $('.customer-tab-input').val();
+  if (searchedCustomer.length !== 0) {
+    domUpdates.addClassToActivateAddCustomerButton();
+  } else {
+    domUpdates.removeClassFromAddCustomerButton();
+  }
+});
 
 function addCustomer() {
   let searchedCustomer = $('.customer-tab-input').val();
   if (searchedCustomer.length !== 0) {
     domUpdates.displayCustomerName(searchedCustomer);
+    domUpdates.updateCustomerSpan(searchedCustomer);
   }
 }
 
@@ -163,3 +162,11 @@ $('.search-result').on('click', event => {
   domUpdates.showRoomBookingHistory(roomHistory);
   domUpdates.updateCustomerSpan(searchedCustomer);
 });
+
+$('.rooms-date-input')
+  .datepicker({ dateFormat: 'yy/mm/dd' })
+  .val();
+
+$('.orders-date-input')
+  .datepicker({ dateFormat: 'yy/mm/dd' })
+  .val();

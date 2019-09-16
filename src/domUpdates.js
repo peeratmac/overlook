@@ -108,6 +108,17 @@ const domUpdates = {
 
   updateCustomerSpan(searchedName) {
     $('.customer-span').text(searchedName);
+  },
+
+  addClassToActivateAddCustomerButton() {
+    $('.customer-tab-add-customer').addClass(
+      'customer-tab-add-customer-enabled '
+    );
+  },
+  removeClassFromAddCustomerButton() {
+    $('.customer-tab-add-customer').removeClass(
+      'customer-tab-add-customer-enabled '
+    );
   }
 };
 
