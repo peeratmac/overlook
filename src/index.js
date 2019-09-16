@@ -50,8 +50,6 @@ let roomServices = fetch(
   .then(data => (roomServices = data.roomServices))
   .catch(err => console.log('Unable to fetch data', err));
 
-setTimeout(() => console.log(roomServices), 3000);
-
 let dataFromFetch = { users: {}, rooms: {}, bookings: {}, roomServices: {} };
 
 Promise.all([users, rooms, bookings, roomServices]).then(function(data) {
@@ -121,3 +119,10 @@ $('.find-room-button').on('click', () => {
     domUpdates.appendEmptyRoomList();
   }
 });
+
+function liveSearchCustomer() {
+  let searchedName = $('.customer-tab-input')
+    .val()
+    .toLowerCase();
+  let matchedNames;
+}

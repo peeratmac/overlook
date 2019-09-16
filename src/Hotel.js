@@ -161,6 +161,24 @@ class Hotel {
       }
     );
   }
+
+  // Live Search
+  grabCustomers() {
+    this.userData.forEach(user => {
+      const roomDataX = [1, 2, 3];
+      const bookingDataX = this.lookUpCustomerBookingHistoryMap(user.name);
+      const roomServiceDataX = this.lookUpCustomerMeals(user.name);
+      let userToSearch = new Customer(
+        user.id,
+        user.name,
+        roomDataX,
+        bookingDataX,
+        roomServiceDataX
+      );
+      this.users.push(userToSearch);
+      console.log(this.users);
+    });
+  }
 }
 
 export default Hotel;

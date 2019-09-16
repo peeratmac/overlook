@@ -112,4 +112,8 @@ describe('HOTEL', () => {
       customerHistory
     );
   });
+
+  it.only('should be able to grab all customers to put into an array for live search functionality', () => {
+    hotel.grabCustomers();
+  });
 });
