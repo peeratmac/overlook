@@ -113,7 +113,8 @@ describe('HOTEL', () => {
     );
   });
 
-  it.only('should be able to grab all customers to put into an array for live search functionality', () => {
+  it('should be able to grab all customers to set it up for live search functionality and to create new customers', () => {
     hotel.grabCustomers();
+    expect(hotel.users).to.be.an('array');
   });
 });

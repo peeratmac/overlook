@@ -162,10 +162,12 @@ class Hotel {
     );
   }
 
-  // Live Search
+  // Live Search + New Customer
   grabCustomers() {
     this.userData.forEach(user => {
-      const roomDataX = [1, 2, 3];
+      const roomDataX = this.lookUpCustomerBookingHistory(user.name).map(
+        x => x.roomNumber
+      );
       const bookingDataX = this.lookUpCustomerBookingHistoryMap(user.name);
       const roomServiceDataX = this.lookUpCustomerMeals(user.name);
       let userToSearch = new Customer(
@@ -176,7 +178,6 @@ class Hotel {
         roomServiceDataX
       );
       this.users.push(userToSearch);
-      console.log(this.users);
     });
   }
 }
