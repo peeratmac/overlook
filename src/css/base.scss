@@ -6,6 +6,7 @@
 $current-customer-highlight: #45aaf2;
 $current-day-highlight: #38ada9;
 $selected-day-highlight: #78e08f;
+$customer-list-highlight: #82ccdd;
 
 .tabs {
   padding-right: 40px;
@@ -57,7 +58,8 @@ a:hover {
 }
 
 .customer-name,
-.customer-span {
+.customer-span,
+.customer-tab-span {
   background-color: $current-customer-highlight;
   border-radius: 5px;
   padding: 5px;
@@ -85,4 +87,14 @@ a:hover {
   align-items: flex-start;
   font-weight: 500;
   text-align: center;
+}
+
+.name-list-display {
+  cursor: pointer;
+  background-color: $customer-list-highlight;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 25px;
+  text-align: center;
+  font-weight: 700;
 }

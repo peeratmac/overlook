@@ -101,9 +101,13 @@ const domUpdates = {
     $('.search-result').append(
       names.map(
         name =>
-          `<div class="name-${name.id}" data-id="${name.id}" data-name="${name.name}">${name.name}</div>`
+          `<div class="name-list-display name-${name.id}" data-id="${name.id}" data-name="${name.name}">${name.name}</div>`
       )
     );
+  },
+
+  updateCustomerSpan(searchedName) {
+    $('.customer-span').text(searchedName);
   }
 };
 

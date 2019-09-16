@@ -135,7 +135,7 @@ function liveSearchCustomer() {
   }
 
   if (matchedNames.length === 0) {
-    addCustomer();
+    // ? Prompt to add customer
   }
 
   domUpdates.displayMatchingNames(matchedNames);
@@ -161,4 +161,5 @@ $('.search-result').on('click', event => {
   domUpdates.showOrderHistoryTotal(orderHistoryTotal);
   let roomHistory = hotel.lookUpCustomerBookingHistoryMap(searchedCustomer);
   domUpdates.showRoomBookingHistory(roomHistory);
+  domUpdates.updateCustomerSpan(searchedCustomer);
 });
