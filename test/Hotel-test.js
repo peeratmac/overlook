@@ -112,4 +112,9 @@ describe('HOTEL', () => {
       customerHistory
     );
   });
+
+  it('should be able to grab all customers to set it up for live search functionality and to create new customers', () => {
+    hotel.grabCustomers();
+    expect(hotel.users).to.be.an('array');
+  });
 });

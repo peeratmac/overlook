@@ -29,16 +29,12 @@ let users = fetch(
   .then(data => (users = data.users))
   .catch(error => console.log('Unable to fetch data', error));
 
-setTimeout(() => console.log(users), 2000);
-
 let rooms = fetch(
   'https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms'
 )
   .then(data => data.json())
   .then(data => (rooms = data.rooms))
   .catch(err => console.log('Unable to fetch data', err));
-
-setTimeout(() => console.log(rooms), 3000);
 
 let bookings = fetch(
   'https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings'
@@ -47,16 +43,12 @@ let bookings = fetch(
   .then(data => (bookings = data.bookings))
   .catch(err => console.log('Unable to fetch data', err));
 
-setTimeout(() => console.log(bookings), 3000);
-
 let roomServices = fetch(
   'https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices'
 )
   .then(data => data.json())
   .then(data => (roomServices = data.roomServices))
   .catch(err => console.log('Unable to fetch data', err));
-
-setTimeout(() => console.log(roomServices), 3000);
 
 let dataFromFetch = { users: {}, rooms: {}, bookings: {}, roomServices: {} };
 
@@ -87,6 +79,7 @@ setTimeout(() => {
   hotel.mainPageDomUpdates();
   hotel.ordersPageDomUpdates();
   hotel.roomsPageDomUpdates();
+  hotel.grabCustomers();
   domUpdates.showCurrentUser('No Customer Selected');
 }, 3000);
 
@@ -121,8 +114,51 @@ $('.find-room-button').on('click', () => {
       searchedDate,
       selectedOption
     );
+    domUpdates.displayRoomSearchedDate(searchedDate);
   } else {
     window.alert('Please Enter Appropriate Date Input');
     domUpdates.appendEmptyRoomList();
   }
+});
+
+function liveSearchCustomer() {
+  let searchedName = $('.customer-tab-input')
+    .val()
+    .toLowerCase();
+
+  let matchedNames = hotel.users.filter(user => {
+    return user.name.toLowerCase().includes(searchedName);
+  });
+
+  if (searchedName.length === 0) {
+    matchedNames = [];
+  }
+
+  if (matchedNames.length === 0) {
+    addCustomer();
+  }
+
+  domUpdates.displayMatchingNames(matchedNames);
+}
+
+$('.customer-tab-input').on('keyup', liveSearchCustomer);
+
+function addCustomer() {
+  let searchedCustomer = $('.customer-tab-input').val();
+  if (searchedCustomer.length !== 0) {
+    domUpdates.displayCustomerName(searchedCustomer);
+  }
+}
+
+$('.customer-tab-add-customer').on('click', addCustomer);
+
+$('.search-result').on('click', event => {
+  let searchedCustomer = $(event.target).attr('data-name');
+  domUpdates.displayCustomerName(searchedCustomer);
+  let orderHistoryList = hotel.lookUpCustomerMeals(searchedCustomer);
+  domUpdates.showOrderHistoryList(orderHistoryList);
+  let orderHistoryTotal = hotel.lookUpCustomerTotalMeals(searchedCustomer);
+  domUpdates.showOrderHistoryTotal(orderHistoryTotal);
+  let roomHistory = hotel.lookUpCustomerBookingHistoryMap(searchedCustomer);
+  domUpdates.showRoomBookingHistory(roomHistory);
 });

@@ -26,13 +26,16 @@
         </ul>
         <div class="tabs-stage">
           <div id="main-tab">
-            <p class="total-rooms-available">XX rooms available</p>
-            <p class="occupancy-percentage">XX% occupancy right now</p>
-            <p class="room-revenue">$XX.XX rooms revenue today</p>
-            <p class="room-service-revenue">
-              $XX.XX room services revenue today
-            </p>
-            <p class="total-revenue">$XX.XX total revenue today</p>
+            <container class="today-overview-container">
+              <h2><span class="today-overview">Today's Overview</span></h2>
+              <p class="total-rooms-available">XX rooms available</p>
+              <p class="occupancy-percentage">XX% occupancy right now</p>
+              <p class="room-revenue">$XX.XX rooms revenue today</p>
+              <p class="room-service-revenue">
+                $XX.XX room services revenue today
+              </p>
+              <p class="total-revenue">$XX.XX total revenue today</p>
+            </container>
           </div>
           <div id="orders-tab">
             <h2 class="all-orders-today">All Orders Today:</h2>
@@ -86,7 +89,11 @@
             <button class="find-room-button">Find Room</button>
             <p class="available-rooms-list">
               <container class="room-list-booking">
-                <h2>Rooms Availability Here:</h2>
+                <h2>
+                  Rooms Availability on
+                  <span class="room-order-date">Selected Date</span>
+                  Here:
+                </h2>
                 <ul class="append-room-list"></ul>
               </container>
             </p>
@@ -111,7 +118,10 @@
             >
               Search Customer
             </button>
-            <div class="search-result">Search Result List Here</div>
+            <button class="customer-tab-add-customer" value="Add Customer">
+              Add Customer
+            </button>
+            <p class="search-result"></p>
           </div>
         </div>
       </div>
