@@ -134,7 +134,31 @@ function liveSearchCustomer() {
     matchedNames = [];
   }
 
+  if (matchedNames.length === 0) {
+    addCustomer();
+  }
+
   domUpdates.displayMatchingNames(matchedNames);
 }
 
 $('.customer-tab-input').on('keyup', liveSearchCustomer);
+
+function addCustomer() {
+  let searchedCustomer = $('.customer-tab-input').val();
+  if (searchedCustomer.length !== 0) {
+    domUpdates.displayCustomerName(searchedCustomer);
+  }
+}
+
+$('.customer-tab-add-customer').on('click', addCustomer);
+
+$('.search-result').on('click', event => {
+  let searchedCustomer = $(event.target).attr('data-name');
+  domUpdates.displayCustomerName(searchedCustomer);
+  let orderHistoryList = hotel.lookUpCustomerMeals(searchedCustomer);
+  domUpdates.showOrderHistoryList(orderHistoryList);
+  let orderHistoryTotal = hotel.lookUpCustomerTotalMeals(searchedCustomer);
+  domUpdates.showOrderHistoryTotal(orderHistoryTotal);
+  let roomHistory = hotel.lookUpCustomerBookingHistoryMap(searchedCustomer);
+  domUpdates.showRoomBookingHistory(roomHistory);
+});
