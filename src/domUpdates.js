@@ -94,6 +94,11 @@ const domUpdates = {
 
   displayRoomSearchedDate(searchedDate) {
     $('.room-order-date').text(searchedDate);
+  },
+
+  displayMatchingNames(names) {
+    $('.search-result').empty();
+    $('.search-result').append(names.map(name => `<div>${name.name}</div>`));
   }
 };
 

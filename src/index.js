@@ -79,6 +79,7 @@ setTimeout(() => {
   hotel.mainPageDomUpdates();
   hotel.ordersPageDomUpdates();
   hotel.roomsPageDomUpdates();
+  hotel.grabCustomers();
   domUpdates.showCurrentUser('No Customer Selected');
 }, 3000);
 
@@ -124,5 +125,16 @@ function liveSearchCustomer() {
   let searchedName = $('.customer-tab-input')
     .val()
     .toLowerCase();
-  let matchedNames;
+
+  let matchedNames = hotel.users.filter(user => {
+    return user.name.toLowerCase().includes(searchedName);
+  });
+
+  if (searchedName.length === 0) {
+    matchedNames = [];
+  }
+
+  domUpdates.displayMatchingNames(matchedNames);
 }
+
+$('.customer-tab-input').on('keyup', liveSearchCustomer);
