@@ -94,16 +94,16 @@ $('.orders-date-search-button').on('click', () => {
   domUpdates.showRoomServicesRevenueOnOrdersPageForDate(revenueResult);
 });
 
-$('.customer-tab-search-customer').on('click', () => {
-  let searchedCustomer = $('.customer-tab-input').val();
-  domUpdates.displayCustomerName(searchedCustomer);
-  let orderHistoryList = hotel.lookUpCustomerMeals(searchedCustomer);
-  domUpdates.showOrderHistoryList(orderHistoryList);
-  let orderHistoryTotal = hotel.lookUpCustomerTotalMeals(searchedCustomer);
-  domUpdates.showOrderHistoryTotal(orderHistoryTotal);
-  let roomHistory = hotel.lookUpCustomerBookingHistoryMap(searchedCustomer);
-  domUpdates.showRoomBookingHistory(roomHistory);
-});
+// $('.customer-tab-search-customer').on('click', () => {
+//   let searchedCustomer = $('.customer-tab-input').val();
+//   domUpdates.displayCustomerName(searchedCustomer);
+//   let orderHistoryList = hotel.lookUpCustomerMeals(searchedCustomer);
+//   domUpdates.showOrderHistoryList(orderHistoryList);
+//   let orderHistoryTotal = hotel.lookUpCustomerTotalMeals(searchedCustomer);
+//   domUpdates.showOrderHistoryTotal(orderHistoryTotal);
+//   let roomHistory = hotel.lookUpCustomerBookingHistoryMap(searchedCustomer);
+//   domUpdates.showRoomBookingHistory(roomHistory);
+// });
 
 $('.find-room-button').on('click', () => {
   let selectedOption = $('.select-option option:selected').text();
