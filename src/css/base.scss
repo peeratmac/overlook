@@ -213,7 +213,12 @@ a:hover {
 }
 
 .main-tab-span {
+  font-weight: 300;
+}
+
+.main-tab-numbers {
   background-color: $main-tab-span-highlight;
   border-radius: 5px;
-  padding: 5px;
+  padding: 15px;
+  font-weight: 700;
 }

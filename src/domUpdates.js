@@ -14,31 +14,39 @@ const domUpdates = {
 
   showOccupancyPercentage(percent) {
     $('.occupancy-percentage').append(
-      `<span class="main-tab-span">${percent}% occupancy right now</span>`
+      `<span class="main-tab-span"><span class="main-tab-numbers">${Math.floor(
+        percent
+      )}%</span> occupancy right now</span>`
     );
   },
 
   showRoomsAvailable(rooms) {
     $('.total-rooms-available').append(
-      `<span class="main-tab-span">${rooms} rooms avaialble</span>`
+      `<span class="main-tab-span"><span class="main-tab-numbers">${rooms}</span> rooms avaialble</span>`
     );
   },
 
   showRoomsRevenue(revenue) {
     $('.room-revenue').append(
-      `<span class="main-tab-span">$${revenue} rooms revenue today</span>`
+      `<span class="main-tab-span"><span class="main-tab-numbers">$${Math.floor(
+        revenue
+      )}</span> rooms revenue today</span>`
     );
   },
 
   showRoomServicesRevenue(revenue) {
     $('.room-service-revenue').append(
-      `<span class="main-tab-span">$${revenue} room services revenue today</span>`
+      `<span class="main-tab-span"><span class="main-tab-numbers">$${Math.floor(
+        revenue
+      )}</span> room services revenue today</span>`
     );
   },
 
   showTotalRevenue(revenue) {
     $('.total-revenue').append(
-      `<span class="main-tab-span">$${revenue} total revenue today</span>`
+      `<span class="main-tab-span"><span class="main-tab-numbers">$${Math.floor(
+        revenue
+      )}</span> total revenue today</span>`
     );
   },
 
