@@ -122,10 +122,15 @@ const domUpdates = {
       'customer-tab-add-customer-enabled '
     );
   },
+
   removeClassFromAddCustomerButton() {
     $('.customer-tab-add-customer').removeClass(
       'customer-tab-add-customer-enabled '
     );
+  },
+
+  toggleLiveSearchSelected(id) {
+    $(`.name-${id}`).toggleClass('live-search-selected');
   }
 };
 

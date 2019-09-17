@@ -154,3 +154,9 @@ a:hover {
   border-radius: 5px;
   padding: 5px;
 }
+
+.live-search-selected {
+  background-color: $current-customer-highlight;
+  font-weight: 900;
+  font-size: 25px;
+}

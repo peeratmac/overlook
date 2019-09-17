@@ -136,6 +136,28 @@ function liveSearchCustomer() {
   domUpdates.displayMatchingNames(matchedNames);
 }
 
+$('.search-result').hover(
+  function(event) {
+    $('.customer-tab-input').val('');
+    let targetedName = $(event.target).attr('data-name');
+    $('.customer-tab-input').val(targetedName);
+    domUpdates.removeClassFromAddCustomerButton();
+  },
+  function(event) {
+    $('.customer-tab-input').val('');
+    hoverAfterSearch(event);
+    domUpdates.removeClassFromAddCustomerButton();
+  }
+);
+
+function hoverAfterSearch(event) {
+  $('.name-list-display').hover(function(event) {
+    $('.customer-tab-input').val('');
+    let targetedName = $(event.target).attr('data-name');
+    $('.customer-tab-input').val(targetedName);
+  });
+}
+
 $('.customer-tab-input').on('keyup', () => {
   liveSearchCustomer();
   let searchedCustomer = $('.customer-tab-input').val();
@@ -166,6 +188,8 @@ $('.search-result').on('click', event => {
   let roomHistory = hotel.lookUpCustomerBookingHistoryMap(searchedCustomer);
   domUpdates.showRoomBookingHistory(roomHistory);
   domUpdates.updateCustomerSpan(searchedCustomer);
+  let searchedCustomerID = $(event.target).attr('data-id');
+  domUpdates.toggleLiveSearchSelected(searchedCustomerID);
 });
 
 $('.append-room-list').on('click', event => {
