@@ -135,9 +135,15 @@ const domUpdates = {
 
   displayFoodMenu(food, price) {
     let foodItems = $(
-      `<p>${food}, $${price}<button class="order-food-button" data-food="${food}" data-price="${price}">Order</button></p>`
+      `<p class="food-menu-p">${food}, $${price}<button class="order-food-button" data-food="${food}" data-price="${price}">Order</button></p>`
     );
     $('.new-orders-list').append(foodItems);
+  },
+
+  updateNewlyFoodOrders(food, price) {
+    $('.newly-food-orders').append(
+      `<p class="newly-food-orders-display">Food: ${food}  Price: ${price}</p>`
+    );
   }
 };
 

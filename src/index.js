@@ -198,13 +198,21 @@ $('.append-room-list').on('click', event => {
   domUpdates.updateNewlyBookedRoomAndDate(targetedDate, targetedRoom);
 });
 
-$('.orders-date-search-button-new').on('click', () => {
+$('.orders-date-search-button-new').on('click', event => {
   // Todo: Need to make sure date input is not empty
   let targetedDate = $('.orders-date-input-new').val();
   if (targetedDate !== '') {
     hotel.bookingMagic.menuToBook();
   }
   // Todo: once each order button is clicked, append appropriately to '.new-orders-list'
+});
+
+$('.new-orders-list').on('click', event => {
+  let targetedFood = $(event.target).attr('data-food');
+  let targetedPrice = $(event.target).attr('data-price');
+  if (targetedFood !== undefined || targetedPrice !== undefined) {
+    domUpdates.updateNewlyFoodOrders(targetedFood, targetedPrice);
+  }
 });
 
 $('#rooms-date-input')
