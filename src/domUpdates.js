@@ -144,6 +144,14 @@ const domUpdates = {
     $('.newly-food-orders').append(
       `<p class="newly-food-orders-display">Food: ${food}  Price: ${price}</p>`
     );
+  },
+
+  clearNewlyBookedListAndFoodOrders() {
+    $('.newly-food-orders').empty();
+    $('.newly-booked-list').empty();
+    $('.customer-rooms-history-list').empty();
+    $('.order-history-list').empty();
+    $('.lifetime-order-spending').empty();
   }
 };
 
