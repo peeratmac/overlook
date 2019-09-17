@@ -17,7 +17,9 @@ const domUpdates = {
   },
 
   showRoomsAvailable(rooms) {
-    $('.total-rooms-available').text(`${rooms} avaialble`);
+    $('.total-rooms-available').append(
+      `<span class="main-tab-span">${rooms} rooms avaialble</span>`
+    );
   },
 
   showRoomsRevenue(revenue) {
@@ -94,7 +96,7 @@ const domUpdates = {
   },
 
   showRoomBookingHistoryX(date, room) {
-    let info = `<p>Date: ${date}, Room: ${room}</p>`;
+    let info = `<p class="customer-rooms-history-list-p">Date: ${date}, Room: ${room}</p>`;
     $('.customer-rooms-history-list').append(info);
   },
 
