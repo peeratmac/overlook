@@ -162,9 +162,11 @@ $('.customer-tab-input').on('keyup', () => {
   liveSearchCustomer();
   let searchedCustomer = $('.customer-tab-input').val();
   if (searchedCustomer.length !== 0) {
+    domUpdates.emptySuggestionToAddCustomer();
     domUpdates.addClassToActivateAddCustomerButton();
   } else {
     domUpdates.removeClassFromAddCustomerButton();
+    domUpdates.appendSuggestionToAddCustomer();
   }
 });
 
