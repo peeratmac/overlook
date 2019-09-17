@@ -95,7 +95,7 @@ const domUpdates = {
 
   showRoomBookingHistoryX(date, room) {
     let info = `<p>Date: ${date}, Room: ${room}</p>`;
-    $('.customers-rooms-history-list').append(info);
+    $('.customer-rooms-history-list').append(info);
   },
 
   displayRoomSearchedDate(searchedDate) {
@@ -154,7 +154,7 @@ const domUpdates = {
   clearNewlyBookedListAndFoodOrders() {
     $('.newly-food-orders').empty();
     $('.newly-booked-list').empty();
-    // $('.customer-rooms-history-list').empty();
+    $('.customer-rooms-history-list').empty();
     $('.order-history-list').empty();
     $('.lifetime-order-spending').empty();
   },
