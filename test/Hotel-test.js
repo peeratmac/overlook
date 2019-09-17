@@ -12,6 +12,8 @@ import Hotel from '../src/Hotel';
 import RoomService from '../src/RoomService';
 import domUpdates from '../src/domUpdates';
 
+chai.spy.on(domUpdates, ['showRoomBookingHistoryX'], () => {});
+
 describe('HOTEL', () => {
   let hotel;
   beforeEach(() => {
@@ -116,5 +118,11 @@ describe('HOTEL', () => {
   it('should be able to grab all customers to set it up for live search functionality and to create new customers', () => {
     hotel.grabCustomers();
     expect(hotel.users).to.be.an('array');
+  });
+
+  it('should return the same return as lookUpCustomerBookingHistory, this one include domUpdates for appending', () => {
+    expect(
+      hotel.lookUpCustomerBookingHistoryAppend('Brook Christiansen')
+    ).to.be.an('array');
   });
 });

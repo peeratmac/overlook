@@ -189,8 +189,7 @@ $('.search-result').on('click', event => {
   domUpdates.showOrderHistoryList(orderHistoryList);
   let orderHistoryTotal = hotel.lookUpCustomerTotalMeals(searchedCustomer);
   domUpdates.showOrderHistoryTotal(orderHistoryTotal);
-  let roomHistory = hotel.lookUpCustomerBookingHistoryMap(searchedCustomer);
-  domUpdates.showRoomBookingHistory(roomHistory);
+  hotel.lookUpCustomerBookingHistoryAppend(searchedCustomer);
   domUpdates.updateCustomerSpan(searchedCustomer);
   let searchedCustomerID = $(event.target).attr('data-id');
   domUpdates.toggleLiveSearchSelected(searchedCustomerID);

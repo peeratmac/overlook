@@ -162,11 +162,13 @@ class Hotel {
   lookUpCustomerBookingHistoryAppend(searchedCustomer) {
     let history = this.lookUpCustomerBookingHistory(searchedCustomer);
 
-    return history.forEach(roomStayed => {
+    history.forEach(roomStayed => {
       let dateX = roomStayed.date;
       let roomX = roomStayed.roomNumber;
       domUpdates.showRoomBookingHistoryX(dateX, roomX);
     });
+
+    return history;
   }
 
   // * Live Search

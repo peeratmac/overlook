@@ -13,23 +13,41 @@ const domUpdates = {
   },
 
   showOccupancyPercentage(percent) {
-    $('.occupancy-percentage').text(`${percent}% occupancy right now`);
+    $('.occupancy-percentage').append(
+      `<span class="main-tab-span"><span class="main-tab-numbers">${Math.floor(
+        percent
+      )}%</span> occupancy right now</span>`
+    );
   },
 
   showRoomsAvailable(rooms) {
-    $('.total-rooms-available').text(`${rooms} avaialble`);
+    $('.total-rooms-available').append(
+      `<span class="main-tab-span"><span class="main-tab-numbers">${rooms}</span> rooms avaialble</span>`
+    );
   },
 
   showRoomsRevenue(revenue) {
-    $('.room-revenue').text(`$${revenue} rooms revenue today`);
+    $('.room-revenue').append(
+      `<span class="main-tab-span"><span class="main-tab-numbers">$${Math.floor(
+        revenue
+      )}</span> rooms revenue today</span>`
+    );
   },
 
   showRoomServicesRevenue(revenue) {
-    $('.room-service-revenue').text(`$${revenue} room services revenue today`);
+    $('.room-service-revenue').append(
+      `<span class="main-tab-span"><span class="main-tab-numbers">$${Math.floor(
+        revenue
+      )}</span> room services revenue today</span>`
+    );
   },
 
   showTotalRevenue(revenue) {
-    $('.total-revenue').text(`$${revenue} total revenue today`);
+    $('.total-revenue').append(
+      `<span class="main-tab-span"><span class="main-tab-numbers">$${Math.floor(
+        revenue
+      )}</span> total revenue today</span>`
+    );
   },
 
   // Orders/RoomServices
@@ -94,8 +112,8 @@ const domUpdates = {
   },
 
   showRoomBookingHistoryX(date, room) {
-    let info = `<p>Date: ${date}, Room: ${room}</p>`;
-    $('.customers-rooms-history-list').append(info);
+    let info = `<p class="customer-rooms-history-list-p">Date: ${date}, Room: ${room}</p>`;
+    $('.customer-rooms-history-list').append(info);
   },
 
   displayRoomSearchedDate(searchedDate) {
@@ -154,7 +172,7 @@ const domUpdates = {
   clearNewlyBookedListAndFoodOrders() {
     $('.newly-food-orders').empty();
     $('.newly-booked-list').empty();
-    // $('.customer-rooms-history-list').empty();
+    $('.customer-rooms-history-list').empty();
     $('.order-history-list').empty();
     $('.lifetime-order-spending').empty();
   },

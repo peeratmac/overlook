@@ -8,6 +8,7 @@ $current-day-highlight: #38ada9;
 $selected-day-highlight: #78e08f;
 $customer-list-highlight: #82ccdd;
 $newly-booked-highlight: #f8c291;
+$main-tab-span-highlight: #1dd1a1;
 
 #ui-datepicker-div {
   background: $selected-day-highlight;
@@ -203,4 +204,21 @@ a:hover {
   background-color: $newly-booked-highlight;
   border-radius: 5px;
   padding: 5px;
+}
+
+.customer-rooms-history-list-p {
+  background-color: $newly-booked-highlight;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.main-tab-span {
+  font-weight: 300;
+}
+
+.main-tab-numbers {
+  background-color: $main-tab-span-highlight;
+  border-radius: 5px;
+  padding: 15px;
+  font-weight: 700;
 }
