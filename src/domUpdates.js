@@ -13,7 +13,9 @@ const domUpdates = {
   },
 
   showOccupancyPercentage(percent) {
-    $('.occupancy-percentage').text(`${percent}% occupancy right now`);
+    $('.occupancy-percentage').append(
+      `<span class="main-tab-span">${percent}% occupancy right now</span>`
+    );
   },
 
   showRoomsAvailable(rooms) {
@@ -23,15 +25,21 @@ const domUpdates = {
   },
 
   showRoomsRevenue(revenue) {
-    $('.room-revenue').text(`$${revenue} rooms revenue today`);
+    $('.room-revenue').append(
+      `<span class="main-tab-span">$${revenue} rooms revenue today</span>`
+    );
   },
 
   showRoomServicesRevenue(revenue) {
-    $('.room-service-revenue').text(`$${revenue} room services revenue today`);
+    $('.room-service-revenue').append(
+      `<span class="main-tab-span">$${revenue} room services revenue today</span>`
+    );
   },
 
   showTotalRevenue(revenue) {
-    $('.total-revenue').text(`$${revenue} total revenue today`);
+    $('.total-revenue').append(
+      `<span class="main-tab-span">$${revenue} total revenue today</span>`
+    );
   },
 
   // Orders/RoomServices
