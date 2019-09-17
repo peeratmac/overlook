@@ -74,18 +74,19 @@ const domUpdates = {
   },
 
   appendRoomList(roomNumber, roomType, bidet, bedSize, numBeds, costPerNight) {
-    let row1 = $(
-      `<button class="book-room-button-${roomNumber}">Book</button> <h5>Type: ${roomType}</h5>`
+    let content = $(
+      `<div class="room-list-div"><p>Type: ${roomType}</p><p>Bidet: ${bidet}</p><p>Bed Size: ${bedSize}</p> <p>Number of Beds: ${numBeds}</p><h4>Nightly Price: ${costPerNight}</h4><button class="book-button book-room-button-${roomNumber}" data-room="${roomNumber}">Book</button></div>`
     );
-    let row2 = $(
-      `<p>Bidet: ${bidet}  Bed Size: ${bedSize}  Number of Beds: ${numBeds}</p>`
-    );
-    let row3 = $(`<h4>Nightly Price: ${costPerNight}</h4>`);
-    $('.append-room-list').append(row1, row2, row3);
+
+    $('.append-room-list').append(content);
   },
 
   appendEmptyRoomList() {
     $('.append-room-list').text(`No Rooms Available Today`);
+  },
+
+  emptyOutRoomSearch() {
+    $('.append-room-list').empty();
   },
 
   showRoomBookingHistory(info) {
@@ -94,6 +95,12 @@ const domUpdates = {
 
   displayRoomSearchedDate(searchedDate) {
     $('.room-order-date').text(searchedDate);
+  },
+
+  updateNewlyBookedRoomAndDate(date, roomNumber) {
+    $('.newly-booked-list').append(
+      `<p class="newly-booked-display"> Date: ${date} Room: ${roomNumber}</p>`
+    );
   },
 
   displayMatchingNames(names) {
@@ -108,6 +115,17 @@ const domUpdates = {
 
   updateCustomerSpan(searchedName) {
     $('.customer-span').text(searchedName);
+  },
+
+  addClassToActivateAddCustomerButton() {
+    $('.customer-tab-add-customer').addClass(
+      'customer-tab-add-customer-enabled '
+    );
+  },
+  removeClassFromAddCustomerButton() {
+    $('.customer-tab-add-customer').removeClass(
+      'customer-tab-add-customer-enabled '
+    );
   }
 };
 
