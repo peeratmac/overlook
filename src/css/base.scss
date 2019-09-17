@@ -7,6 +7,7 @@ $current-customer-highlight: #45aaf2;
 $current-day-highlight: #38ada9;
 $selected-day-highlight: #78e08f;
 $customer-list-highlight: #82ccdd;
+$newly-booked-highlight: #f8c291;
 
 .tabs {
   padding-right: 40px;
@@ -122,4 +123,28 @@ a:hover {
 .customer-tab-add-customer-enabled {
   border: 5px solid $current-customer-highlight;
   cursor: pointer;
+}
+
+.append-room-list {
+  overflow-y: scroll;
+}
+
+.room-list-div {
+  display: flex;
+  justify-content: space-between;
+  border: 5px solid $selected-day-highlight;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 335px;
+}
+
+.book-button:hover {
+  background-color: $newly-booked-highlight;
+}
+
+.newly-booked-display {
+  background-color: $newly-booked-highlight;
+  border-radius: 5px;
+  padding: 5px;
 }

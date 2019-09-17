@@ -166,8 +166,11 @@ $('.search-result').on('click', event => {
 
 $('.append-room-list').on('click', event => {
   let targetedRoom = $(event.target).attr('data-room');
+  let targetedDate = $('.rooms-date-input').val();
   console.log(targetedRoom);
   // Todo: Append today's date Date: and then room number Room:
+  domUpdates.updateNewlyBookedRoomAndDate(targetedDate, targetedRoom);
+
   // Todo: make sure to highlight it with different styling to show user that this is the new booking!
 });
 
