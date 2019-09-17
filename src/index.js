@@ -86,13 +86,17 @@ setTimeout(() => {
 
 $('.orders-date-search-button').on('click', () => {
   let searchedDate = $('.orders-date-input').val();
-  domUpdates.updateSelectedDateText(searchedDate);
-  let result = hotel.bookingMagic.findRoomServicesOrderMap(searchedDate);
-  domUpdates.showAllOrdersListForDate(result);
-  let revenueResult = hotel.bookingMagic.calculateNightlyRoomServiceRevenue(
-    searchedDate
-  );
-  domUpdates.showRoomServicesRevenueOnOrdersPageForDate(revenueResult);
+  if (searchedDate != '') {
+    domUpdates.updateSelectedDateText(searchedDate);
+    let result = hotel.bookingMagic.findRoomServicesOrderMap(searchedDate);
+    domUpdates.showAllOrdersListForDate(result);
+    let revenueResult = hotel.bookingMagic.calculateNightlyRoomServiceRevenue(
+      searchedDate
+    );
+    domUpdates.showRoomServicesRevenueOnOrdersPageForDate(revenueResult);
+  } else {
+    window.alert('Please Select Appropriate Date Input');
+  }
 });
 
 $('.find-room-button').on('click', () => {
@@ -107,7 +111,7 @@ $('.find-room-button').on('click', () => {
     );
     domUpdates.displayRoomSearchedDate(searchedDate);
   } else {
-    window.alert('Please Enter Appropriate Date Input');
+    window.alert('Please Select Appropriate Date Input');
     domUpdates.appendEmptyRoomList();
   }
 });
@@ -130,6 +134,28 @@ function liveSearchCustomer() {
   }
 
   domUpdates.displayMatchingNames(matchedNames);
+}
+
+$('.search-result').hover(
+  function(event) {
+    $('.customer-tab-input').val('');
+    let targetedName = $(event.target).attr('data-name');
+    $('.customer-tab-input').val(targetedName);
+    domUpdates.removeClassFromAddCustomerButton();
+  },
+  function(event) {
+    $('.customer-tab-input').val('');
+    hoverAfterSearch(event);
+    domUpdates.removeClassFromAddCustomerButton();
+  }
+);
+
+function hoverAfterSearch(event) {
+  $('.name-list-display').hover(function(event) {
+    $('.customer-tab-input').val('');
+    let targetedName = $(event.target).attr('data-name');
+    $('.customer-tab-input').val(targetedName);
+  });
 }
 
 $('.customer-tab-input').on('keyup', () => {
@@ -162,26 +188,20 @@ $('.search-result').on('click', event => {
   let roomHistory = hotel.lookUpCustomerBookingHistoryMap(searchedCustomer);
   domUpdates.showRoomBookingHistory(roomHistory);
   domUpdates.updateCustomerSpan(searchedCustomer);
+  let searchedCustomerID = $(event.target).attr('data-id');
+  domUpdates.toggleLiveSearchSelected(searchedCustomerID);
 });
 
 $('.append-room-list').on('click', event => {
   let targetedRoom = $(event.target).attr('data-room');
   let targetedDate = $('.rooms-date-input').val();
-  console.log(targetedRoom);
-  // Todo: Append today's date Date: and then room number Room:
   domUpdates.updateNewlyBookedRoomAndDate(targetedDate, targetedRoom);
-
-  // Todo: make sure to highlight it with different styling to show user that this is the new booking!
 });
 
-// Date Picker * currently need styling
+$('#rooms-date-input')
+  .datepicker({ dateFormat: 'yy/mm/dd' })
+  .val();
 
-// $('.rooms-date-input')
-//   .datepicker({ dateFormat: 'yy/mm/dd' })
-//   .val();
-
-// $('.orders-date-input')
-//   .datepicker({ dateFormat: 'yy/mm/dd' })
-//   .val();
-
-// End of Date Picker
+$('#orders-date-input')
+  .datepicker({ dateFormat: 'yy/mm/dd' })
+  .val();

@@ -9,6 +9,12 @@ $selected-day-highlight: #78e08f;
 $customer-list-highlight: #82ccdd;
 $newly-booked-highlight: #f8c291;
 
+#ui-datepicker-div {
+  background: $selected-day-highlight;
+  border-radius: 5px;
+  margin-left: -10px;
+}
+
 .tabs {
   padding-right: 40px;
 }
@@ -147,4 +153,10 @@ a:hover {
   background-color: $newly-booked-highlight;
   border-radius: 5px;
   padding: 5px;
+}
+
+.live-search-selected {
+  background-color: $current-customer-highlight;
+  font-weight: 900;
+  font-size: 25px;
 }
