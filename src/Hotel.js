@@ -59,9 +59,6 @@ class Hotel {
   }
 
   ordersPageDomUpdates() {
-    // ! Hardcoded in the date with data for right now to display
-    // ! Don't forget to change this and remove the comment^^
-    // ! use '2019/07/28' to check for data or styling
     let allOrdersToday = this.bookingMagic.findRoomServicesOrderMap(
       this.getTodayDate()
     );
@@ -180,9 +177,6 @@ class Hotel {
       this.users.push(userToSearch);
     });
   }
-
-  // * Add New Booking (Book customer a room)
-  bookForCustomer() {}
 }
 
 export default Hotel;

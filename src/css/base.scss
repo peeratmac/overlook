@@ -155,8 +155,52 @@ a:hover {
   padding: 5px;
 }
 
+.newly-booked-list {
+  display: block;
+}
+
 .live-search-selected {
   background-color: $current-customer-highlight;
   font-weight: 900;
   font-size: 25px;
+}
+
+.room-service-history-title {
+  margin-top: 40px;
+}
+
+.new-orders-list {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  overflow-y: scroll;
+}
+
+.newly-food-orders {
+  overflow-y: scroll;
+}
+
+.food-menu-p {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+  border: 5px solid $current-customer-highlight;
+  border-radius: 10px;
+}
+
+.order-food-button {
+  cursor: pointer;
+  margin-left: 5px;
+  border-radius: 10px;
+}
+
+.order-food-button:hover {
+  background-color: $newly-booked-highlight;
+}
+
+.newly-food-orders-display {
+  background-color: $newly-booked-highlight;
+  border-radius: 5px;
+  padding: 5px;
 }
