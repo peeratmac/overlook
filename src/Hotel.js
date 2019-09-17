@@ -159,6 +159,16 @@ class Hotel {
     );
   }
 
+  lookUpCustomerBookingHistoryAppend(searchedCustomer) {
+    let history = this.lookUpCustomerBookingHistory(searchedCustomer);
+
+    return history.forEach(roomStayed => {
+      let dateX = roomStayed.date;
+      let roomX = roomStayed.roomNumber;
+      domUpdates.showRoomBookingHistoryX(dateX, roomX);
+    });
+  }
+
   // * Live Search
   grabCustomers() {
     this.userData.forEach(user => {

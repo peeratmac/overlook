@@ -93,6 +93,11 @@ const domUpdates = {
     $('.customer-rooms-history-list').text(info);
   },
 
+  showRoomBookingHistoryX(date, room) {
+    let info = `<p>Date: ${date}, Room: ${room}</p>`;
+    $('.customers-rooms-history-list').append(info);
+  },
+
   displayRoomSearchedDate(searchedDate) {
     $('.room-order-date').text(searchedDate);
   },
@@ -144,6 +149,24 @@ const domUpdates = {
     $('.newly-food-orders').append(
       `<p class="newly-food-orders-display">Food: ${food}  Price: ${price}</p>`
     );
+  },
+
+  clearNewlyBookedListAndFoodOrders() {
+    $('.newly-food-orders').empty();
+    $('.newly-booked-list').empty();
+    // $('.customer-rooms-history-list').empty();
+    $('.order-history-list').empty();
+    $('.lifetime-order-spending').empty();
+  },
+
+  appendSuggestionToAddCustomer() {
+    $('.search-list-empty').append(
+      `<h3>Results Not Found, Please Search or Add New Customer</h3>`
+    );
+  },
+
+  emptySuggestionToAddCustomer() {
+    $('.search-list-empty').empty();
   }
 };
 

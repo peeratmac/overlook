@@ -162,13 +162,16 @@ $('.customer-tab-input').on('keyup', () => {
   liveSearchCustomer();
   let searchedCustomer = $('.customer-tab-input').val();
   if (searchedCustomer.length !== 0) {
+    domUpdates.emptySuggestionToAddCustomer();
     domUpdates.addClassToActivateAddCustomerButton();
   } else {
     domUpdates.removeClassFromAddCustomerButton();
+    domUpdates.appendSuggestionToAddCustomer();
   }
 });
 
 function addCustomer() {
+  domUpdates.clearNewlyBookedListAndFoodOrders();
   let searchedCustomer = $('.customer-tab-input').val();
   if (searchedCustomer.length !== 0) {
     domUpdates.displayCustomerName(searchedCustomer);
@@ -179,6 +182,7 @@ function addCustomer() {
 $('.customer-tab-add-customer').on('click', addCustomer);
 
 $('.search-result').on('click', event => {
+  domUpdates.clearNewlyBookedListAndFoodOrders();
   let searchedCustomer = $(event.target).attr('data-name');
   domUpdates.displayCustomerName(searchedCustomer);
   let orderHistoryList = hotel.lookUpCustomerMeals(searchedCustomer);
@@ -195,22 +199,22 @@ $('.search-result').on('click', event => {
 $('.append-room-list').on('click', event => {
   let targetedRoom = $(event.target).attr('data-room');
   let targetedDate = $('.rooms-date-input').val();
-  domUpdates.updateNewlyBookedRoomAndDate(targetedDate, targetedRoom);
+  if (targetedDate !== undefined && targetedRoom !== undefined) {
+    domUpdates.updateNewlyBookedRoomAndDate(targetedDate, targetedRoom);
+  }
 });
 
 $('.orders-date-search-button-new').on('click', event => {
-  // Todo: Need to make sure date input is not empty
   let targetedDate = $('.orders-date-input-new').val();
   if (targetedDate !== '') {
     hotel.bookingMagic.menuToBook();
   }
-  // Todo: once each order button is clicked, append appropriately to '.new-orders-list'
 });
 
 $('.new-orders-list').on('click', event => {
   let targetedFood = $(event.target).attr('data-food');
   let targetedPrice = $(event.target).attr('data-price');
-  if (targetedFood !== undefined || targetedPrice !== undefined) {
+  if (targetedFood !== undefined && targetedPrice !== undefined) {
     domUpdates.updateNewlyFoodOrders(targetedFood, targetedPrice);
   }
 });
