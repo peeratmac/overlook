@@ -75,7 +75,7 @@ const domUpdates = {
 
   appendRoomList(roomNumber, roomType, bidet, bedSize, numBeds, costPerNight) {
     let row1 = $(
-      `<button class="book-room-button-${roomNumber}">Book</button> <h5>Type: ${roomType}</h5>`
+      `<button class="book-room-button-${roomNumber}" data-room="${roomNumber}">Book</button> <h5>Type: ${roomType}</h5>`
     );
     let row2 = $(
       `<p>Bidet: ${bidet}  Bed Size: ${bedSize}  Number of Beds: ${numBeds}</p>`
@@ -88,6 +88,10 @@ const domUpdates = {
     $('.append-room-list').text(`No Rooms Available Today`);
   },
 
+  emptyOutRoomSearch() {
+    $('.append-room-list').empty();
+  },
+
   showRoomBookingHistory(info) {
     $('.customer-rooms-history-list').text(info);
   },
@@ -95,6 +99,8 @@ const domUpdates = {
   displayRoomSearchedDate(searchedDate) {
     $('.room-order-date').text(searchedDate);
   },
+
+  updateNewlyBookedRoomAndDate() {},
 
   displayMatchingNames(names) {
     $('.search-result').empty();

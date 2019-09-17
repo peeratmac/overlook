@@ -96,6 +96,7 @@ $('.orders-date-search-button').on('click', () => {
 });
 
 $('.find-room-button').on('click', () => {
+  domUpdates.emptyOutRoomSearch();
   let selectedOption = $('.select-option option:selected').text();
   console.log(selectedOption);
   let searchedDate = $('.rooms-date-input').val();
@@ -163,10 +164,21 @@ $('.search-result').on('click', event => {
   domUpdates.updateCustomerSpan(searchedCustomer);
 });
 
-$('.rooms-date-input')
-  .datepicker({ dateFormat: 'yy/mm/dd' })
-  .val();
+$('.append-room-list').on('click', event => {
+  let targetedRoom = $(event.target).attr('data-room');
+  console.log(targetedRoom);
+  // Todo: Append today's date Date: and then room number Room:
+  // Todo: make sure to highlight it with different styling to show user that this is the new booking!
+});
 
-$('.orders-date-input')
-  .datepicker({ dateFormat: 'yy/mm/dd' })
-  .val();
+// Date Picker * currently need styling
+
+// $('.rooms-date-input')
+//   .datepicker({ dateFormat: 'yy/mm/dd' })
+//   .val();
+
+// $('.orders-date-input')
+//   .datepicker({ dateFormat: 'yy/mm/dd' })
+//   .val();
+
+// End of Date Picker

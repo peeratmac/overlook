@@ -162,7 +162,7 @@ class Hotel {
     );
   }
 
-  // Live Search + New Customer
+  // * Live Search
   grabCustomers() {
     this.userData.forEach(user => {
       const roomDataX = this.lookUpCustomerBookingHistory(user.name).map(
@@ -180,6 +180,9 @@ class Hotel {
       this.users.push(userToSearch);
     });
   }
+
+  // * Add New Booking (Book customer a room)
+  bookForCustomer() {}
 }
 
 export default Hotel;
