@@ -198,10 +198,21 @@ $('.append-room-list').on('click', event => {
   domUpdates.updateNewlyBookedRoomAndDate(targetedDate, targetedRoom);
 });
 
+$('.orders-date-search-button-new').on('click', () => {
+  // Todo: Need to make sure date input is not empty
+  // Todo: Need to display menu with pricing along with ordering button (append all the info)
+  // Todo: make sure all the above has data-id for menu items
+  // Todo: once each order button is clicked, append appropriately to '.new-orders-list'
+});
+
 $('#rooms-date-input')
   .datepicker({ dateFormat: 'yy/mm/dd' })
   .val();
 
 $('#orders-date-input')
+  .datepicker({ dateFormat: 'yy/mm/dd' })
+  .val();
+
+$('#orders-date-input-new')
   .datepicker({ dateFormat: 'yy/mm/dd' })
   .val();
