@@ -9,6 +9,12 @@ $selected-day-highlight: #78e08f;
 $customer-list-highlight: #82ccdd;
 $newly-booked-highlight: #f8c291;
 
+#ui-datepicker-div {
+  background: $selected-day-highlight;
+  border-radius: 5px;
+  margin-left: -10px;
+}
+
 .tabs {
   padding-right: 40px;
 }
