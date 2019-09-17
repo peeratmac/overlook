@@ -200,8 +200,10 @@ $('.append-room-list').on('click', event => {
 
 $('.orders-date-search-button-new').on('click', () => {
   // Todo: Need to make sure date input is not empty
-  // Todo: Need to display menu with pricing along with ordering button (append all the info)
-  // Todo: make sure all the above has data-id for menu items
+  let targetedDate = $('.orders-date-input-new').val();
+  if (targetedDate !== '') {
+    hotel.bookingMagic.menuToBook();
+  }
   // Todo: once each order button is clicked, append appropriately to '.new-orders-list'
 });
 

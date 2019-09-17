@@ -131,6 +131,13 @@ const domUpdates = {
 
   toggleLiveSearchSelected(id) {
     $(`.name-${id}`).toggleClass('live-search-selected');
+  },
+
+  displayFoodMenu(food, price) {
+    let foodItems = $(
+      `<p>${food}, $${price}<button class="order-food-button" data-food="${food}" data-price="${price}">Order</button></p>`
+    );
+    $('.new-orders-list').append(foodItems);
   }
 };
 

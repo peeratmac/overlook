@@ -65,6 +65,33 @@ class Booking {
     });
   }
 
+  listAllAvailableMenusWithPricing() {
+    let menus = this.roomServices.map(menu => {
+      return { food: menu.food, totalCost: menu.totalCost };
+    });
+    return menus;
+  }
+
+  listTheMenuInOrder() {
+    let menus = this.roomServices.map(menu => {
+      return { food: menu.food, totalCost: menu.totalCost };
+    });
+    let menuList = menus.sort((a, b) => a.totalCost - b.totalCost);
+    return menuList;
+  }
+
+  menuToBook() {
+    let menus = this.listTheMenuInOrder();
+
+    menus.forEach(foodItem => {
+      let food = foodItem.food;
+      let price = foodItem.totalCost;
+      domUpdates.displayFoodMenu(food, price);
+    });
+
+    return menus;
+  }
+
   // * Rooms Booked (Highest and Lowest)
 
   findDateWithMostRoomsBooked() {
