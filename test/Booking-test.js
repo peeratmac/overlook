@@ -15,7 +15,6 @@ import domUpdates from '../src/domUpdates';
 chai.spy.on(
   domUpdates,
   [
-    'showRoomsAvailable',
     'showOccupancyPercentage',
     'showRoomsRevenue',
     'showRoomServicesRevenue',
@@ -31,7 +30,8 @@ chai.spy.on(
     'showMostPopularDate',
     'showLeastPopularDate',
     'appendRoomList',
-    'appendEmptyRoomList'
+    'appendEmptyRoomList',
+    'displayFoodMenu'
   ],
   () => {}
 );
@@ -462,5 +462,21 @@ describe('BOOKING', () => {
       { food: 'Practical Frozen Sandwich', totalCost: 24.91 }
     ];
     expect(hotel.bookingMagic.listTheMenuInOrder()).to.eql(menuInOrder);
+  });
+
+  describe('SPIES', () => {
+    it('should call for updates on the DOM function to display food menu', () => {
+      hotel.bookingMagic.menuToBook();
+      expect(domUpdates.displayFoodMenu).to.have.been.called(100);
+    });
+
+    it('should call to update available rooms based on the filter for date and room type', () => {
+      hotel.bookingMagic.listOfAvailableRoomsWithType(
+        '2019/09/18',
+        'junior suite'
+      );
+      expect(domUpdates.appendRoomList).to.have.been.called(20);
+      expect(domUpdates.appendEmptyRoomList).to.not.have.been.called();
+    });
   });
 });
