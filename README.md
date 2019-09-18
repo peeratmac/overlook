@@ -17,6 +17,7 @@ Hotel Staffers and Management Team Use Cases:
 
 ![working-product-gif](screenshots/working-product-1.gif)
 ![working-product-gif-2](screenshots/working-product-2.gif)
+![working-product-gif-3](screenshots/working-product-3.gif)
 
 ![dark-main](screenshots/dark-main-1.png)
 ![light-customer](screenshots/light-customer-1.png)
