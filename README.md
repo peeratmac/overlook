@@ -13,17 +13,19 @@ Hotel Staffers and Management Team Use Cases:
 
 [List of Issues can be found here](https://github.com/peeratmac/overlook/issues)
 
-## Working Product and Screenshots
+## Working Product GIFS
+
+### Customer and Rooms Tab
 
 ![working-product-gif](screenshots/working-product-1.gif)
-![working-product-gif-2](screenshots/working-product-2.gif)
-![working-product-gif-3](screenshots/working-product-3.gif)
 
-![dark-main](screenshots/dark-main-1.png)
-![light-customer](screenshots/light-customer-1.png)
-![dark-book](screenshots/dark-book-1.png)
-![light-book](screenshots/light-book-1.png)
-![light-order](screenshots/light-order-1.png)
+### Room Booking
+
+![working-product-gif-2](screenshots/working-product-2.gif)
+
+### Dark Mode and Room Service
+
+![working-product-gif-3](screenshots/working-product-3.gif)
 
 ## Thank you:
 
@@ -51,3 +53,15 @@ Hotel Staffers and Management Team Use Cases:
 3. Run `npm install` to install the webpack dependencies
 4. Once it has finished installing, run `npm start`
 5. Go to the localhost address `ex. http://localhost:8080/`
+
+## Relevant Static Screenshots
+
+![dark-main](screenshots/dark-main-1.png)
+
+![light-customer](screenshots/light-customer-1.png)
+
+![dark-book](screenshots/dark-book-1.png)
+
+![light-book](screenshots/light-book-1.png)
+
+![light-order](screenshots/light-order-1.png)
