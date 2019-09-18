@@ -93,7 +93,7 @@ const domUpdates = {
 
   appendRoomList(roomNumber, roomType, bidet, bedSize, numBeds, costPerNight) {
     let content = $(
-      `<div class="room-list-div"><p>Type: ${roomType}</p><p>Bidet: ${bidet}</p><p>Bed Size: ${bedSize}</p> <p>Number of Beds: ${numBeds}</p><h4>Nightly Price: ${costPerNight}</h4><button class="book-button book-room-button-${roomNumber}" data-room="${roomNumber}">Book</button></div>`
+      `<div class="room-list-div"><p class="inside-room-card">${roomType.toUpperCase()}</p><p class="inside-room-card">Bidet: ${bidet}</p><p class="inside-room-card">${bedSize.toUpperCase()}</p> <p class="inside-room-card">Beds: ${numBeds}</p><p class="inside-room-card"><b>$${costPerNight}</b></p><button class="book-button inside-room-card book-room-button-${roomNumber}" data-room="${roomNumber}">Book</button></div>`
     );
 
     $('.append-room-list').append(content);
@@ -112,7 +112,7 @@ const domUpdates = {
   },
 
   showRoomBookingHistoryX(date, room) {
-    let info = `<p class="customer-rooms-history-list-p">Date: ${date}, Room: ${room}</p>`;
+    let info = `<p class="customer-rooms-history-list-p"><span class="customer-rooms-history-list-span">Date: ${date}, Room: ${room}</span></p>`;
     $('.customer-rooms-history-list').append(info);
   },
 
@@ -122,7 +122,7 @@ const domUpdates = {
 
   updateNewlyBookedRoomAndDate(date, roomNumber) {
     $('.newly-booked-list').append(
-      `<p class="newly-booked-display"> Date: ${date} Room: ${roomNumber}</p>`
+      `<p class="newly-booked-display"><span class="newly-booked-display-span"> Date: ${date} Room: ${roomNumber}</span></p>`
     );
   },
 
@@ -185,6 +185,26 @@ const domUpdates = {
 
   emptySuggestionToAddCustomer() {
     $('.search-list-empty').empty();
+  },
+
+  addRoomServiceError() {
+    $('.error-room-service').append(
+      `<span class="room-service-error-span">Please Select the Date</span>`
+    );
+  },
+
+  emptyRoomServiceError() {
+    $('.error-room-service').empty();
+  },
+
+  addRoomServiceErrorNew() {
+    $('.error-room-service-new').append(
+      `<span class="room-service-error-span">Please Select the Date</span>`
+    );
+  },
+
+  emptyRoomServiceErrorNew() {
+    $('.error-room-service-new').empty();
   }
 };
 

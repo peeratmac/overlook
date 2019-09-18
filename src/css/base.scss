@@ -9,6 +9,22 @@ $selected-day-highlight: #78e08f;
 $customer-list-highlight: #82ccdd;
 $newly-booked-highlight: #f8c291;
 $main-tab-span-highlight: #1dd1a1;
+$red-alert-error: #ee5253;
+$newly-booked-highlight2: #ff9f43;
+
+.moon {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  font-size: 40px;
+}
+
+.dark {
+  color: #bfbfbf;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
 
 #ui-datepicker-div {
   background: $selected-day-highlight;
@@ -143,7 +159,20 @@ a:hover {
   border-radius: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 335px;
+  // width: 335px;
+}
+
+.inside-room-card {
+  display: flex;
+  margin-left: 20px;
+  justify-content: flex-start;
+}
+
+.book-button {
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .book-button:hover {
@@ -151,9 +180,14 @@ a:hover {
 }
 
 .newly-booked-display {
-  background-color: $newly-booked-highlight;
+  margin-left: -40px;
+}
+
+.newly-booked-display-span {
+  background-color: $newly-booked-highlight2;
   border-radius: 5px;
   padding: 5px;
+  font-weight: 500;
 }
 
 .newly-booked-list {
@@ -194,6 +228,8 @@ a:hover {
   cursor: pointer;
   margin-left: 5px;
   border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .order-food-button:hover {
@@ -206,7 +242,7 @@ a:hover {
   padding: 5px;
 }
 
-.customer-rooms-history-list-p {
+.customer-rooms-history-list-span {
   background-color: $newly-booked-highlight;
   border-radius: 5px;
   padding: 5px;
@@ -221,4 +257,18 @@ a:hover {
   border-radius: 5px;
   padding: 15px;
   font-weight: 700;
+}
+
+.orders-date-search-button,
+.orders-date-search-button-new {
+  background-color: $newly-booked-highlight;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.room-service-error-span {
+  background-color: $red-alert-error;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: 500;
 }
