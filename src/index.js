@@ -63,8 +63,6 @@ Promise.all([users, rooms, bookings, roomServices]).then(function(data) {
 
 // * End of fetch
 
-// Todo: here here //
-
 let hotel;
 setTimeout(() => {
   hotel = new Hotel(
@@ -87,6 +85,7 @@ setTimeout(() => {
 $('.orders-date-search-button').on('click', () => {
   let searchedDate = $('.orders-date-input').val();
   if (searchedDate != '') {
+    domUpdates.emptyRoomServiceError();
     domUpdates.updateSelectedDateText(searchedDate);
     let result = hotel.bookingMagic.findRoomServicesOrderMap(searchedDate);
     domUpdates.showAllOrdersListForDate(result);
@@ -95,7 +94,8 @@ $('.orders-date-search-button').on('click', () => {
     );
     domUpdates.showRoomServicesRevenueOnOrdersPageForDate(revenueResult);
   } else {
-    window.alert('Please Select Appropriate Date Input');
+    domUpdates.emptyRoomServiceError();
+    domUpdates.addRoomServiceError();
   }
 });
 
@@ -206,7 +206,11 @@ $('.append-room-list').on('click', event => {
 $('.orders-date-search-button-new').on('click', event => {
   let targetedDate = $('.orders-date-input-new').val();
   if (targetedDate !== '') {
+    domUpdates.emptyRoomServiceErrorNew();
     hotel.bookingMagic.menuToBook();
+  } else {
+    domUpdates.emptyRoomServiceErrorNew();
+    domUpdates.addRoomServiceErrorNew();
   }
 });
 

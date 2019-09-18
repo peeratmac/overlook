@@ -9,6 +9,8 @@ $selected-day-highlight: #78e08f;
 $customer-list-highlight: #82ccdd;
 $newly-booked-highlight: #f8c291;
 $main-tab-span-highlight: #1dd1a1;
+$red-alert-error: #ee5253;
+$newly-booked-highlight2: #ff9f43;
 
 #ui-datepicker-div {
   background: $selected-day-highlight;
@@ -151,9 +153,14 @@ a:hover {
 }
 
 .newly-booked-display {
-  background-color: $newly-booked-highlight;
+  margin-left: -40px;
+}
+
+.newly-booked-display-span {
+  background-color: $newly-booked-highlight2;
   border-radius: 5px;
   padding: 5px;
+  font-weight: 500;
 }
 
 .newly-booked-list {
@@ -206,7 +213,7 @@ a:hover {
   padding: 5px;
 }
 
-.customer-rooms-history-list-p {
+.customer-rooms-history-list-span {
   background-color: $newly-booked-highlight;
   border-radius: 5px;
   padding: 5px;
@@ -221,4 +228,18 @@ a:hover {
   border-radius: 5px;
   padding: 15px;
   font-weight: 700;
+}
+
+.orders-date-search-button,
+.orders-date-search-button-new {
+  background-color: $newly-booked-highlight;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.room-service-error-span {
+  background-color: $red-alert-error;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: 500;
 }
