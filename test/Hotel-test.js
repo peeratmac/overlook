@@ -12,7 +12,11 @@ import Hotel from '../src/Hotel';
 import RoomService from '../src/RoomService';
 import domUpdates from '../src/domUpdates';
 
-chai.spy.on(domUpdates, ['showRoomBookingHistoryX'], () => {});
+chai.spy.on(
+  domUpdates,
+  ['showRoomBookingHistoryX', 'showRoomsAvailable'],
+  () => {}
+);
 
 describe('HOTEL', () => {
   let hotel;
@@ -123,5 +127,20 @@ describe('HOTEL', () => {
     expect(
       hotel.lookUpCustomerBookingHistoryAppend('Brook Christiansen')
     ).to.be.an('array');
+  });
+
+  describe('SPIES', () => {
+    it('should call for updates on the DOM function to show history of rooms booked', () => {
+      hotel.lookUpCustomerBookingHistoryAppend('Brook Christiansen');
+      expect(domUpdates.showRoomBookingHistoryX).to.have.been.called(42);
+    });
+  });
+
+  it('should call on the methods for the main page to display today occupancy, number of rooms available, revenues data on page load', () => {
+    hotel.mainPageDomUpdates();
+    expect(domUpdates.showRoomsAvailable).to.have.been.called(17);
+    expect(domUpdates.showOccupancyPercentage).to.have.been.called(17);
+    expect(domUpdates.showRoomsRevenue).to.have.been.called(17);
+    expect(domUpdates.showRoomServicesRevenue).to.have.been.called(17);
   });
 });
