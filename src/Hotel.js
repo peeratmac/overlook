@@ -117,6 +117,10 @@ class Hotel {
     });
   }
 
+  getUserRoomServicesX(userID) {
+    let userRoomServices = this.getUserRoomServices(userID);
+  }
+
   // * Look Up Customer
 
   getCustomerID2(nameInput) {

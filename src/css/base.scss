@@ -12,6 +12,20 @@ $main-tab-span-highlight: #1dd1a1;
 $red-alert-error: #ee5253;
 $newly-booked-highlight2: #ff9f43;
 
+.moon {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  font-size: 40px;
+}
+
+.dark {
+  color: #bfbfbf;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
+
 #ui-datepicker-div {
   background: $selected-day-highlight;
   border-radius: 5px;
@@ -145,7 +159,20 @@ a:hover {
   border-radius: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 335px;
+  // width: 335px;
+}
+
+.inside-room-card {
+  display: flex;
+  margin-left: 20px;
+  justify-content: flex-start;
+}
+
+.book-button {
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .book-button:hover {
@@ -201,6 +228,8 @@ a:hover {
   cursor: pointer;
   margin-left: 5px;
   border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .order-food-button:hover {

@@ -93,7 +93,7 @@ const domUpdates = {
 
   appendRoomList(roomNumber, roomType, bidet, bedSize, numBeds, costPerNight) {
     let content = $(
-      `<div class="room-list-div"><p>Type: ${roomType}</p><p>Bidet: ${bidet}</p><p>Bed Size: ${bedSize}</p> <p>Number of Beds: ${numBeds}</p><h4>Nightly Price: ${costPerNight}</h4><button class="book-button book-room-button-${roomNumber}" data-room="${roomNumber}">Book</button></div>`
+      `<div class="room-list-div"><p class="inside-room-card">${roomType.toUpperCase()}</p><p class="inside-room-card">Bidet: ${bidet}</p><p class="inside-room-card">${bedSize.toUpperCase()}</p> <p class="inside-room-card">Beds: ${numBeds}</p><p class="inside-room-card"><b>$${costPerNight}</b></p><button class="book-button inside-room-card book-room-button-${roomNumber}" data-room="${roomNumber}">Book</button></div>`
     );
 
     $('.append-room-list').append(content);

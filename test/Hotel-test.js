@@ -42,7 +42,6 @@ describe('HOTEL', () => {
     expect(hotel.addCustomerName('Lana Del Rey')).to.equal(
       data.users[data.users.length - 1]
     );
-    console.log(data.users[data.users.length - 1]);
   });
 
   it('should be able to get user room services data given userID', () => {

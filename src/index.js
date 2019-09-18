@@ -222,6 +222,10 @@ $('.new-orders-list').on('click', event => {
   }
 });
 
+$('.moon').on('click', () => {
+  $('body').toggleClass('dark');
+});
+
 $('#rooms-date-input')
   .datepicker({ dateFormat: 'yy/mm/dd' })
   .val();
