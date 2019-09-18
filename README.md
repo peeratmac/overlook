@@ -1,5 +1,5 @@
 # Overlook: Management Application for Hotel Staffers
-[Live Site](https://peeratmac.github.io/overlook)
+# [Live Site](https://peeratmac.github.io/overlook)
 
 ## What is it?
 
