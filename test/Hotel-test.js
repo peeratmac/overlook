@@ -124,4 +124,11 @@ describe('HOTEL', () => {
       hotel.lookUpCustomerBookingHistoryAppend('Brook Christiansen')
     ).to.be.an('array');
   });
+
+  describe('SPIES', () => {
+    it('should call for updates on the DOM function to show history of rooms booked', () => {
+      hotel.lookUpCustomerBookingHistoryAppend('Brook Christiansen');
+      expect(domUpdates.showRoomBookingHistoryX).to.have.been.called(42);
+    });
+  });
 });
