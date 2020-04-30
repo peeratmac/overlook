@@ -32,7 +32,7 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-ui-bundle": "^1.12.1-migrate",
     "webpack-jquery-ui": "^2.0.1"
   }
